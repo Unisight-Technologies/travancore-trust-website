@@ -1,9 +1,9 @@
 /*------------------------------------------------------------------------------------------------------------------------
- 
+
  @package: Sadaka
  @author: Ouarmedia/Farouk BLALOU
  @version: 1.0
- 
+
  --------------------------------------------------------------------------------------------------------------------- */
 
 /* =============================================================================
@@ -12,6 +12,12 @@
 body {
   font-family: "Open sans", sans-serif;
   color: #115c9b;
+}
+
+@media only screen and (max-width: 100px) {
+  .navbar-brand1 {
+    height: 100%;
+  }
 }
 
 h1,
@@ -31,7 +37,7 @@ a:hover, a:focus, a:active {
 /* =============================================================================
   Layout
 ========================================================================== */
-/* Header 
+/* Header
 ================================= */
 .navbar-static-top {
   margin: 0;
@@ -120,7 +126,7 @@ a:hover, a:focus, a:active {
   background: #fff;
 }
 
-/* Home Slider 
+/* Home Slider
 ================================= */
 .carousel-home img {
   width: 100%;
@@ -167,7 +173,7 @@ a:hover, a:focus, a:active {
   margin: 30px 0;
 }
 
-/* home/ about-us 
+/* home/ about-us
 ================================= */
 .about-us {
   margin: 30px 0;
@@ -199,7 +205,7 @@ a:hover, a:focus, a:active {
   min-height: 80px;
 }
 
-/* home/reasons 
+/* home/reasons
 ================================= */
 .home-reasons {
   margin: 25px 0;
@@ -306,7 +312,7 @@ a:hover, a:focus, a:active {
   border-color: #144d7b;
 }
 
-/* Team 
+/* Team
 ================================= */
 .team-member {
   background:#fff;
@@ -325,10 +331,10 @@ a:hover, a:focus, a:active {
 }
 .team-member .member-position {
   padding: 0 15px 5px;
-  
+
 }
 
-/* footer 
+/* footer
 ================================= */
 .footer-top {
   background: #115c9b;
@@ -421,7 +427,7 @@ a:hover, a:focus, a:active {
   color: #fff;
 }
 
-/* Pages 
+/* Pages
 ================================= */
 .page-heading {
   background: url('../images/heading-bg.jpg?1428795369') no-repeat center;
@@ -443,7 +449,7 @@ a:hover, a:focus, a:active {
   margin-bottom: 50px;
 }
 
-/* Pages/Gallery 
+/* Pages/Gallery
 ================================= */
 .gallery-item {
   padding: 0;
@@ -478,7 +484,7 @@ a:hover, a:focus, a:active {
   margin-top: 7px;
 }
 
-/* contact 
+/* contact
 ================================= */
 .contact-map {
   height: 350px;
@@ -489,7 +495,7 @@ form .alert {
   display: none;
 }
 
-/* Causes 
+/* Causes
 ================================= */
 .cause-carousel {
   margin-top: 15px;
