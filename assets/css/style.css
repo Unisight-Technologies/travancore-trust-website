@@ -176,6 +176,7 @@ a:hover, a:focus, a:active {
 .about-us-col {
   height: 325px;
   padding: 25px;
+  border-radius: 20px;
   text-align: center;
   background-color: #0076a3;
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMjgwODE0IiB5MT0iLTAuMTAyMjA4IiB4Mj0iMC43MTkxODYiIHkyPSIxLjEwMjIwOCI+PHN0b3Agb2Zmc2V0PSItMjUlIiBzdG9wLWNvbG9yPSIjMTE1YjliIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxMjkwZjgiLz48c3RvcCBvZmZzZXQ9IjEyNSUiIHN0b3AtY29sb3I9IiMxMTViOWIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
@@ -187,6 +188,7 @@ a:hover, a:focus, a:active {
 }
 .about-us-col .col-icon-wrapper {
   min-height: 80px;
+  border-radius: 20%;
 }
 .about-us-col .col-title {
   text-transform: uppercase;
@@ -265,6 +267,8 @@ a:hover, a:focus, a:active {
 .cause {
   padding-bottom: 15px;
   margin-bottom: 30px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   border: 1px solid #1f76bd;
   -moz-transition: all, 0.3s;
   -o-transition: all, 0.3s;
@@ -305,10 +309,12 @@ a:hover, a:focus, a:active {
 /* Team 
 ================================= */
 .team-member {
-  background: #1f76bd;
-  color: #fff;
+  background:#fff;
+  color: #1f76bd;
   text-align: center;
   padding-bottom: 15px;
+  border-bottom-left-radius: 5% ;
+  border-bottom-right-radius: 5% ;
   border: 1px solid #1f76bd;
 }
 .team-member .thumnail img {
@@ -319,6 +325,7 @@ a:hover, a:focus, a:active {
 }
 .team-member .member-position {
   padding: 0 15px 5px;
+  
 }
 
 /* footer 
@@ -495,7 +502,8 @@ form .alert {
 .btn-primary {
   background: #115c9b;
   border: none;
-  border-radius: 0;
+  border-radius: 40px;
+  width: 150px;
   padding: 10px 25px;
   border: 1px solid transparent;
   -moz-transition: all, 0.3s;
@@ -753,6 +761,7 @@ form .alert {
 @media (max-width: 1200px) {
   .about-us-col {
     padding: 15px;
+    border: 0.9;
   }
 
   .reasons-col:hover .on-hover {
