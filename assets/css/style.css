@@ -559,7 +559,7 @@ form .alert {
   display: block;
   margin: 5px auto;
   background: #1f76bd;
-  height: 1px;
+  /* height: px; */
   width: 280px;
 }
 .title-under:after {
