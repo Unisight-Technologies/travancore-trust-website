@@ -58,6 +58,25 @@ a:hover, a:focus, a:active {
   width: 100%;
 }
 
+.car{
+  height: 620px;
+}
+.alert {
+  position: relative;
+  padding: 3.50rem 4.25rem;
+  margin-bottom: 3rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  height: 15rem;
+  
+}
+
+.alert:hover {
+  box-shadow: 0px 5px 10px #8080ff;
+  color: inherit;
+  transform: translateY(-7px);
+}
+
 .navbar-top {
   background: #115c9b;
   font-size: 12px;
