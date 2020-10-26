@@ -20,6 +20,17 @@ body {
   }
 }
 
+@media only screen and (max-width: 700px) {
+  .volunteer-image {
+    width: 100%;
+  }
+}
+
+.volunteer-image{
+  height: 70%;
+  width: 40%;
+}
+
 h1,
 h2,
 h3,
@@ -40,9 +51,11 @@ a:hover, a:focus, a:active {
 /* Header
 ================================= */
 .navbar-static-top {
+  position: fixed;
   margin: 0;
   border: 0;
   color: #fff;
+  width: 100%;
 }
 
 .navbar-top {
