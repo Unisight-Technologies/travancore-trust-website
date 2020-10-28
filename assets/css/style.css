@@ -424,12 +424,15 @@ a:hover, a:focus, a:active {
   margin: 0;
   background: #fff;
 }
+.list-unstyled {
+  padding-left: 0;
+  list-style: none; }
 .main-footer .footer-content {
   text-align: justify;
-  font-size: 13px;
+  font-size: 15px;
 }
 .main-footer .tweet {
-  font-size: 13px;
+  font-size: 15px;
 }
 .main-footer .tweet:after {
   content: "";
