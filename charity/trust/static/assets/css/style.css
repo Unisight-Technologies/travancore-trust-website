@@ -23,6 +23,26 @@ position: fixed;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
 }
 
+.footer-ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-li{
+  padding-bottom: 20px;
+}
+
+.footer-icon{
+  display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: black;
+    vertical-align: middle;
+    margin-right: 5px;
+    color: #fff;
+    text-align: center;
+}
+
 .FAB:hover{
   color: white;
 text-decoration: none;

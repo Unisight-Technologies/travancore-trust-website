@@ -85,7 +85,7 @@
 
                   </button>
 
-                  <a class="navbar-brand" href="index.html"><img class="navbar-img" src="{% static 'assets/images/logo4.png' %}" alt=""></a>
+                  <a class="navbar-brand" href="{% url 'index' %}"><img class="navbar-img" src="{% static 'assets/images/logo4.png' %}" alt=""></a>
 
                 </div>
 
@@ -139,10 +139,10 @@
                               <h4 class="footer-title">QUICK LINKS<span class="title-under"></span></h4>
 
                               <div class="footer-content">
-                                  <ul>
+                                  <ul class="footer-ul">
 
-                                        <li><a href="index.html"><span class="fa fa-chevron-right mr-1"></span> HOME</a></li>
-                                        <li><a href="about.html"><span class="fa fa-chevron-right mr-2"></span> ABOUT</a></li>
+                                        <li><a href="{% url 'index' %}"><span class="fa fa-chevron-right mr-1"></span> HOME</a></li>
+                                        <li><a href="{% url 'about' %}"><span class="fa fa-chevron-right mr-2"></span> ABOUT</a></li>
                                         <li class="has-child"><a href="#"><span class="fa fa-chevron-right mr-2"></span> MEDIA</a>
                                           <ul class="submenu">
                                             <li class="submenu-item"><a href="events.html"> EVENTS</a></li>
@@ -166,10 +166,10 @@
                               <h4 class="footer-title">Contact us <span class="title-under"></span></h4>
 
                               <div class="footer-content">
-                                <ul>
-                	                <li><span class="contact-icon"> <i class="fa fa-map-marker"></i></span> Kochupurayil, Chennithala, PO Mavelikkara, Allappey. Pincode:- 690105</span></li>
-                	                <li><a href="#"><span class="icon fa fa-phone" ></span> +91 8848 750 988, +91 8921799665</span></a></li>
-                	                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span> thetravancorecharitabletrust@gmail.com</span></a></li>
+                                <ul class="footer-ul">
+                	                <li class="footer-li"><span class="contact-icon footer-icon"> <i class="fa fa-map-marker"></i></span> Kochupurayil, Chennithala, PO Mavelikkara, Allappey. Pincode:- 690105</span></li>
+                	                <li class="footer-li"><a href="#"><span class="icon footer-icon"><i class="fa fa-phone"></i></span>8848750988,   8921799665</span></a></li>
+                	                <li class="footer-li"><a href="#"><span class="icon footer-icon"><i class="fa fa-paper-plane pr-4"></i></span> thetravancorecharitabletrust@gmail.com</span></a></li>
                 	              </ul>
                               </div>
 
@@ -192,7 +192,7 @@
           <div class="footer-bottom">
 
               <div class="container text-right">
-                  Sadaka @ copyrights 2015 - by <a href="http://www.ouarmedia.com" target="_blank">Ouarmedia</a>
+                  The Travancore Charitable Trust @ copyrights
               </div>
           </div>
 
