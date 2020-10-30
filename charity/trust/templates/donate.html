@@ -2,6 +2,12 @@
 {% load static %}
 {% block body_block %}
 
+
+<!-- PrettyPhoto -->
+<link rel="stylesheet" href="{% static 'assets/css/prettyPhoto.css' %}">
+
+<link rel="stylesheet" href="{% static 'assets/css/funds.css' %}">
+
         <a class="btn btn-lg FAB" href="#">Donate<br>Now!</a>
 
     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
@@ -17,7 +23,7 @@
 
             <div class="item active">
 
-              <img style="height: 520px;" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+              <img style="height: 520px; object-fit: cover;" src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
 
               <div class="container">
 
@@ -36,7 +42,7 @@
 
             <div class="item ">
 
-              <img style="height: 520px;" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+              <img style="height: 520px; object-fit: cover;" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
 
               <div class="container">
 
@@ -57,7 +63,7 @@
 
             <div class="item ">
 
-              <img style="height: 520px" src="https://images.unsplash.com/photo-1558261827-d0de98a628e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+              <img style="height: 520px; object-fit: cover;" src="https://images.unsplash.com/photo-1558261827-d0de98a628e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
 
               <div class="container">
 
@@ -191,6 +197,46 @@
                     <img class="donate-image" src="{% static 'assets/images/united-nations-covid-19-response-QVNyCllG2GQ-unsplash.jpg' %}" alt="">
                 </section>
   				</div>
+
+
+          <div class="row ">
+
+            <div class="col-md-12 fadeIn animate-onscroll">
+
+              <h2 class="title-style-2"> Donate Now <span class="title-under"></span></h2>
+
+
+              <div role="tabpanel">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#regular" aria-controls="regular" role="tab" data-toggle="tab">Regular Donation</a></li>
+                  <li role="presentation"><a href="#anonymous" aria-controls="anonymous" role="tab" data-toggle="tab">Anonymous Donation</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="regular">
+                    Form 1
+                  </div>
+                </div>
+
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="anonymous">
+                    Form 2
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+
         </div>
       </div>
+      <script src="{% static 'assets/js/jquery.prettyPhoto.js' %}"></script>
+
+
 {% endblock %}
