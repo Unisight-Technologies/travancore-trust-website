@@ -25,6 +25,14 @@ position: fixed;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
 }
 
+#money{
+  display: none;
+}
+
+#money2{
+  display: none;
+}
+
   @media only screen and (min-width: 994px) {
     .members-row {
       margin-left: 20%;
