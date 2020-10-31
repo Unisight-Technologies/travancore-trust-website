@@ -10,21 +10,15 @@
   Base
 ========================================================================== */
 
-.font1{
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.font2{
-  font-family: 'Poppins', sans-serif;
-}
-
-.font3{
-      font-family: 'Noto Sans', sans-serif;
-}
 
 body {
   font-family: "Poppins", sans-serif;
   color: #115c9b;
+}
+
+.footer-main{
+  background: #e8a443;
+  color: black;
 }
 
 .FAB{
@@ -66,8 +60,8 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
 
 .footer-icon{
   display: inline-block;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background: black;
     vertical-align: middle;
     margin-right: 5px;
@@ -87,6 +81,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
     color: black;
     padding: 30px;
     border-radius: 30px;
+    color: white;
 }
 
 .even-about-card{
@@ -100,7 +95,14 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
   margin-bottom: 50px;
 }
 
+.carousel-caption a{
+  background: #e8a443;
+  color: white;
+}
 
+.carousel-caption a:hover{
+  background: black;
+}
 
 .item{
   margin-top: 60px;
@@ -118,6 +120,18 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
 @media only screen and (max-width: 1000px) {
   .navbar-img {
     width: 140px;
+  }
+}
+
+@media only screen and (max-width: 748px) {
+  .navbar-img {
+    width: 180px;
+  }
+}
+
+@media only screen and (max-width: 748px) {
+  #navbar-logo {
+    padding-top: 0;
   }
 }
 
@@ -212,9 +226,8 @@ a:hover, a:focus, a:active {
 .navbar-main a:active,
 .navbar-main a:focus,
 .navbar-main a.is-active {
-  background: none !important;
   color: inherit;
-  border-bottom: 2px solid #fff;
+  border-bottom: 3px solid #e8a443;
 }
 .navbar-main .submenu {
   position: absolute;
@@ -493,7 +506,7 @@ a:hover, a:focus, a:active {
   margin-bottom: 10px;
 }
 .main-footer .footer-title .title-under {
-  background: #fff;
+  background: black;
   margin: 15px 0;
   text-align: left;
 }
@@ -1012,10 +1025,7 @@ form .alert {
 }
 /* Extra Small devices (tablets, 480px and Down) */
 @media (max-width: 480px) {
-  .carousel-home .carousel-title {
-    font-size: 16px;
-    margin: 0;
-  }
+
   .carousel-home .carousel-subtitle {
     font-size: 14px;
     margin: 0;
@@ -1227,4 +1237,10 @@ p{
 }
 .btn{
   font-weight: bold;
+}
+
+@media only screen and (max-width: 1000px) {
+  .navbar-main li a {
+    font-size: 15px;
+}
 }

@@ -131,7 +131,7 @@
 
                             <div class="form-group col-md-6">
                               <label for="dgender">Gender*</label>
-                              <div class="col-sm-10">
+                              <div class="col">
                                 <label for="male" class="radio-inline"><input type="radio" name="dgender" value="male" required  id="male"> MALE </label>
                                 <label for="female" class="radio-inline"><input type="radio" name="dgender" value="female" required  id="female"> FEMALE </label>
                                 <label for="other" class="radio-inline"><input type="radio" name="dgender" value="others" required  id="other"> OTHER </label>
@@ -160,9 +160,9 @@
                                              <input type="text" name="dcity" class="form-control" placeholder="City" required>
                                  </div>
 
-                                 <div class="form-group col-md-6">
+                                 <div class="form-group col-md-12">
                                        <label for="dpincode">Zipcode*</label>
-                                             <input type="zipcode" name="dpincode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                                      <input type="zipcode" name="dpincode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
                                  </div>
 
                                  <div class="form-group col-md-6">
@@ -174,6 +174,7 @@
                                        <option value="Livelihood">Livelihood</option>
                                        <option value="Education">Education</option>
                                        <option value="Snacks">Health</option>
+                                       <option value="Misc">Miscellaneous</option>
                                      </select>
 
                                  </div>
@@ -225,6 +226,7 @@
                                              <option value="Livelihood">Livelihood</option>
                                              <option value="Education">Education</option>
                                              <option value="Snacks">Health</option>
+                                             <option value="Misc">Miscellaneous</option>
                                            </select>
 
                                        </div>
