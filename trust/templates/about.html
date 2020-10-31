@@ -27,7 +27,7 @@
 
 				</div>
 
-				<div class="col-md-6">
+				<div class="font1" class="col-md-6">
 
 					<h2 class="title-style-2">ABOUT TRAVANCORE-TRUST <span class="title-under"></span></h2>
 
@@ -41,8 +41,8 @@
 
       <!-- inserting cards again -->
 
-      <div class="row fadeIn animated even-about-card">
-        <div class="col-md-6">
+      <div id="content1" class="row fadeIn animated even-about-card">
+        <div class="font2" class="col-md-6">
 
           <h2 class="title-style-2"> OUR AIM <span class="title-under"></span></h2>
           <ul type="circle">
@@ -81,7 +81,7 @@
 				</div>
         </div>
 
-        <div class="row fadeIn animated odd-about-card">
+        <div id="content" class="row fadeIn animated odd-about-card">
 
   				<div class="col-md-6">
             <p>______________________
@@ -91,7 +91,7 @@
 
   				</div>
 
-  				<div class="col-md-6">
+  				<div class="font3" class="col-md-6">
 
   					<h2 class="title-style-2">OUR MISSION <span class="title-under"></span></h2>
             <ul type="circle">
@@ -124,7 +124,7 @@
 			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
 
 			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
+			                        <a href="#content" class="btn btn-primary"> Read more </a>
 
 			                  </div>
 
@@ -138,13 +138,13 @@
 			                        <div class="col-icon-wrapper">
 			                          <img src="{% static 'assets/images/icons/make-donation-icon.png' %}" alt="">
 			                        </div>
-			                        <h3 class="col-title">Make donations</h3>
+			                        <h3 class="col-title">OUR AIM</h3>
 			                        <div class="col-details">
 
 			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
 
 			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
+			                        <a href="#content1" class="btn btn-primary"> Read more </a>
 
 			                  </div>
 
@@ -158,13 +158,13 @@
 			                        <div class="col-icon-wrapper">
 			                          <img src="{% static 'assets/images/icons/help-icon.png' %}" alt="">
 			                        </div>
-			                        <h3 class="col-title">Help & support</h3>
+			                        <h3 class="col-title">Our Events</h3>
 			                        <div class="col-details">
 
 			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
 
 			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
+			                        <a href="{% url 'events' %}" class="btn btn-primary"> Read more </a>
 
 			                  </div>
 
@@ -178,13 +178,13 @@
 			                        <div class="col-icon-wrapper">
 			                          <img src="{% static 'assets/images/icons/programs-icon.png' %}" alt="">
 			                        </div>
-			                        <h3 class="col-title">our programs</h3>
+			                        <h3 class="col-title">our projects</h3>
 			                        <div class="col-details">
 
 			                          <p>Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus ut eta esami vera dolor sit amet consect</p>
 
 			                        </div>
-			                        <a href="#" class="btn btn-primary"> Read more </a>
+			                        <a href="{% url 'project' %}" class="btn btn-primary"> Read more </a>
 
 			                  </div>
 
