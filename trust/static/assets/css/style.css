@@ -10,6 +10,9 @@
   Base
 ========================================================================== */
 
+html{
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Poppins", sans-serif;
@@ -17,8 +20,8 @@ body {
 }
 
 .footer-main{
-  background: #e8a443;
-  color: black;
+  background: #1F76BD;
+  color: white;
 }
 
 .FAB{

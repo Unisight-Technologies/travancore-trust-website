@@ -86,12 +86,17 @@
 
     </div><!-- /.carousel -->
 
-    <a class="btn btn-lg FAB" href="{% url 'donate' %}">Donate<br>Now!</a>
+    <a class="btn btn-lg FAB" href="{% url 'donate' %}">
+      Donate<br><i style="color: #1F76BD;" class="fas fa-hand-holding-heart"></i><br>Now!
+
+    </a>
 
 
-    <div class="section-home about-us fadeIn animated">
+    <div style="background: #dedede;" class="section-home about-us fadeIn animated">
 
-        <div class="container">
+        <div style="
+        padding-top: 50px;
+        padding-bottom: 50px;" class="container">
 
             <div class="row">
 
@@ -100,7 +105,7 @@
                   <div class="about-us-col">
 
                         <div class="col-icon-wrapper ">
-                          <img src="{% static 'assets/images/icons/our-mission-icon1.png' %}" alt="">
+                          <i style="color: #e8a443;" class="fas fa-bullseye fa-6x"></i>
                         </div>
                         <h3 class="col-title">our mission</h3>
                         <div class="col-details">
@@ -120,7 +125,7 @@
                   <div class="about-us-col">
 
                         <div class="col-icon-wrapper">
-                          <img src="{% static 'assets/images/icons/make-donation-icon1.png' %}" alt="">
+                          <i style="color: #e8a443;" class="fas fa-piggy-bank fa-6x"></i>
                         </div>
                         <h3 class="col-title">Donations</h3>
                         <div class="col-details">
@@ -140,7 +145,7 @@
                   <div class="about-us-col">
 
                         <div class="col-icon-wrapper">
-                          <img src="{% static 'assets/images/icons/help-icon1.png' %}" alt="">
+                          <i style="color: #e8a443;" class="fas fa-handshake fa-6x"></i>
                         </div>
                         <h3 class="col-title">Help & support</h3>
                         <div class="col-details">
@@ -160,7 +165,7 @@
                   <div class="about-us-col">
 
                         <div class="col-icon-wrapper">
-                          <img src="{% static 'assets/images/icons/programs-icon1.png' %}" alt="">
+                          <i style="color: #e8a443;" class="fas fa-puzzle-piece fa-6x"></i>
                         </div>
                         <h3 class="col-title">our programs</h3>
                         <div class="col-details">
@@ -181,8 +186,8 @@
         </div>
 
     </div> <!-- /.about-us -->
-
     <div class="section-home home-reasons">
+      <h2 style="margin-top: 100px;" class="title-style-1">WHAT WE DO<span class="title-under"></span></h2>
 
         <div class="container">
 
@@ -206,10 +211,6 @@
                                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
 
 
-                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
-                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
                         </div>
                     </div>
 
@@ -230,11 +231,6 @@
                         </div>
 
                         <div class="on-hover hidden-xs">
-
-                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
-
-                                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
 
                                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
 
@@ -277,11 +273,6 @@
 
                               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
 
-
-                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
-                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
                       </div>
                   </div>
 
@@ -305,11 +296,6 @@
 
                               <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
 
-
-                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
-                              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur praesentium, itaque facilis nesciunt ab omnis cumque similique ipsa veritatis perspiciatis, harum ad at nihil molestias, dignissimos sint consequuntur. Officia, fuga.</p>
-
                       </div>
 
 
@@ -327,144 +313,7 @@
 
   </div> <!-- /.home-reasons -->
 
-
-    <!-- <div class="section-home our-causes animate-onscroll fadeIn">
-
-        <div class="container">
-
-            <h2 class="title-style-1">Our Causes <span class="title-under"></span></h2>
-
-            <div class="row">
-
-                <div class="col-md-3 col-sm-6">
-
-                    <div class="cause">
-
-                        <img src="assets/images/causes/cause-hunger.jpg" alt="" class="cause-img">
-
-                        <div class="progress cause-progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-                            10$ / 500$
-                          </div>
-                        </div>
-
-                        <h4 class="cause-title"><a href="#">HUNGER AND POVERTY </a></h4>
-                        <div class="cause-details">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                        </div>
-
-                        <div class="btn-holder text-center">
-
-                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
-
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-
-                    <div class="cause">
-
-                        <img src="assets/images/causes/cause-education.jpg" alt="" class="cause-img">
-
-                        <div class="progress cause-progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            400$ / 700$
-                          </div>
-                        </div>
-
-                        <h4 class="cause-title"><a href="#">EDUCATION AND TRAINING</a></h4>
-                        <div class="cause-details">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                        </div>
-
-                        <div class="btn-holder text-center">
-
-                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
-
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-3 col-sm-6">
-
-                    <div class="cause">
-
-                        <img src="assets/images/causes/cause-rights.jpg" alt="" class="cause-img">
-
-                        <div class="progress cause-progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                            400$ / 1000$
-                          </div>
-                        </div>
-
-                        <h4 class="cause-title"><a href="#">HUMAN RIGHTS</a></h4>
-                        <div class="cause-details">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                        </div>
-
-                        <div class="btn-holder text-center">
-
-                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
-
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-
-                    <div class="cause">
-
-                        <img src="assets/images/causes/cause-culture.jpg" alt="" class="cause-img">
-
-                        <div class="progress cause-progress">
-                          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                            400$ / 700$
-                          </div>
-                        </div>
-
-                        <h4 class="cause-title"><a href="#">ARTS AND CULTURE </a></h4>
-                        <div class="cause-details">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at eros rutrum turpis viverra elementum semper quis ex. Donec lorem nulla, aliquam quis neque vel, maximus lacinia urna.
-                        </div>
-
-                        <div class="btn-holder text-center">
-
-                          <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#donateModal"> DONATE NOW</a>
-
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>  -->
-
-
-
-
-
-
-    <div class="section-home our-sponsors animate-onscroll fadeIn">
+    <div style="background: #dedede; padding: 30px;" class="section-home our-sponsors animate-onscroll fadeIn">
 
         <div class="container">
 
