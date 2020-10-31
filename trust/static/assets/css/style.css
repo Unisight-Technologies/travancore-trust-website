@@ -23,9 +23,10 @@
 }
 
 body {
-  font-family: "Open sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #115c9b;
 }
+
 .FAB{
   background-color: black;
 color: white;
@@ -248,10 +249,10 @@ a:hover, a:focus, a:active {
   font-size: 16px;
 }
 .navbar-main li a {
-  font-family: "Dosis", sans-serif;
   font-size: 18px;
   padding: 20px 15px;
   border-bottom: 2px solid transparent;
+  font-weight: 700;
 }
 .navbar-main li:hover .submenu {
   top: 62px;
@@ -1212,4 +1213,18 @@ form .alert {
 .zoomIn {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
+}
+
+
+h1, h2, h3, h4, h5{
+  font-family:  "Poppins", sans-serif;
+  font-weight: 900;
+}
+
+p{
+  font-family:  "Poppins", sans-serif;
+  font-weight: 400;
+}
+.btn{
+  font-weight: bold;
 }
