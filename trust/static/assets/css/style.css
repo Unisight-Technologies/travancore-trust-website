@@ -19,6 +19,186 @@ body {
   color: #115c9b;
 }
 
+/* counter CSS */
+#counter{
+    background-color: white;
+    padding-bottom: 100px;
+}
+#block{
+
+  width:800px; margin:0 auto;margin-top:100px;
+}
+
+.column-left {
+  float: left;
+  width: 33%;
+}
+
+.column-right {
+  float: right;
+  width: 33%;
+}
+
+.column-center {
+  display: inline-block;
+  width: 33%;
+}
+
+#updateNum1 {
+  text-align: center;
+  color: #0295da;
+  font-family: 'Raleway', sans-serif;
+
+  font-size: 42px;
+  font-weight: 700;
+
+}
+
+#updateNum2 {
+
+  text-align: center;
+  color: #0295da;
+  font-family: 'Raleway', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+
+}
+
+#updateNum3 {
+  color: #0295da;
+  font-family: 'Raleway', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+
+}
+
+{
+  width: 550px;
+  outline: #373737 solid thin;
+  display: block;
+  background-color: #eaeaea;
+  background: -webkit-linear-gradient(#eaeaea, blue);
+  /* For Safari 5.1 to 6.0 */
+
+  background: -o-linear-gradient(#eaeaea, #5d5d5d);
+  /* For Opera 11.1 to 12.0 */
+
+  background: -moz-linear-gradient(#eaeaea, #5d5d5d);
+  /* For Firefox 3.6 to 15 */
+
+  background: linear-gradient(#eaeaea, #5d5d5d);
+  /* Standard syntax */
+}
+
+#row1 {
+  font-family: 'Raleway', sans-serif;
+  padding-left: 10px;
+  font-size: 20px;
+  color: #007abf;
+  text-align: center;
+}
+
+#row2 {
+  font-family: 'Raleway', sans-serif;
+  padding-left: 13px;
+  font-size: 20px;
+  color: #007abf;
+  text-align: center;
+}
+
+#row3 {
+  font-family: 'Raleway', sans-serif;
+  padding-left: 40px;
+  font-size: 20px;
+  color: #007abf;
+  text-align: center;
+}
+
+#art2 {
+  width: 600px;
+  weight: 500px;
+
+  display: block;
+  background-color: #eaeaea;
+  background: -webkit-linear-gradient(#eaeaea, #ebebeb);
+  /* For Safari 5.1 to 6.0 */
+
+  background: -o-linear-gradient(#eaeaea, #ebebeb);
+  /* For Opera 11.1 to 12.0 */
+
+  background: -moz-linear-gradient(#eaeaea, #ebebeb);
+  /* For Firefox 3.6 to 15 */
+
+  background: linear-gradient(#eaeaea, #ebebeb);
+  /* Standard syntax */
+
+  box-shadow: 0px 2px 1px #5d5d5d;
+}
+
+#BG {
+  width: 600px;
+  height: 500px;
+  background: rgb(169, 169, 169);
+  outline: #373737 solid medium;
+}
+
+#bg2 {
+  width: 600px;
+  height: 5px;
+  background: #373737;
+  outline: #373737 solid thin;
+}
+
+.column-left2 {
+  float: left;
+  width: 33%;
+}
+
+.column-right2 {
+  float: right;
+  width: 33%;
+}
+
+.column-center2 {
+  display: inline-block;
+  width: 33%;
+}
+
+.class {
+  height: 80px;
+  text-align: left;
+  background: #323031;
+  width: 650px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  #row1{
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #row2{
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #row3{
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #block{
+    width: 600px;
+  }
+}
+/* counter css ends */
+
 .footer-main{
   background: #1F76BD;
   color: white;
