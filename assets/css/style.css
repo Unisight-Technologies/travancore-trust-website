@@ -9,255 +9,10 @@
 /* =============================================================================
   Base
 ========================================================================== */
-
-html{
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Open sans", sans-serif;
   color: #115c9b;
 }
-
-/* counter CSS */
-#counter{
-    background-color: white;
-    padding-bottom: 80px;
-}
-/* #block{
-
-  width:1200px; margin:0 auto; margin-top:80px;
-} */
-
-/* .column-left {
-  float: left;
-  width: 30%;
-  background-color: #e8a443;
-  height:66%;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.column-right {
-  float: right;
-  width: 30%;
-  background-color: #e8a443;
-  height:66%;
-  margin-left: 8px;
-  margin-right: 15px;
-
-}
-
-.column-center {
-  display: inline-block;
-  width: 33%;
-  background-color: #e8a443;
-  height:66%;
-  margin-left: 15px;
-  margin-right: 8px;
-
-} */
-
-#updateNum1 {
-  text-align: center;
-  color: #fff;
-  font-family:"Poppins", sans-serif;
-
-  font-size: 42px;
-  font-weight: 700;
-
-}
-
-#updateNum2 {
-
-  text-align: center;
-  color: #fff;
-  font-family:"Poppins", sans-serif;
-  font-size: 42px;
-  font-weight: 700;
-
-}
-
-#updateNum3 {
-  color: #fff;
-  font-family:"Poppins", sans-serif;
-  font-size: 42px;
-  font-weight: 700;
-  text-align: center;
-
-}
-
-{
-  width: 550px;
-  outline: #373737 solid thin;
-  display: block;
-  background-color: #eaeaea;
-  background: -webkit-linear-gradient(#eaeaea, blue);
-  /* For Safari 5.1 to 6.0 */
-
-  background: -o-linear-gradient(#eaeaea, #5d5d5d);
-  /* For Opera 11.1 to 12.0 */
-
-  background: -moz-linear-gradient(#eaeaea, #5d5d5d);
-  /* For Firefox 3.6 to 15 */
-
-  background: linear-gradient(#eaeaea, #5d5d5d);
-  /* Standard syntax */
-}
-
-{
-  box-sizing: border-box;
-}
-
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 33%;
-  padding: 0 5px;
-}
-
-
-/* Clear floats after the columns */
-.container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 10px;
-  }
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #e8a443;
-  color: white;
-}
-
-.card .fa {font-size:50px;}
-
-
-#row1 {
-  font-family:"Poppins", sans-serif;
-  padding-left: 10px;
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-}
-
-#row2 {
-  font-family:"Poppins", sans-serif;
-  padding-left: 18px;
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-}
-
-#row3 {
-  font-family:"Poppins", sans-serif;
-  padding-left: 30px;
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-}
-
-#art2 {
-  width: 600px;
-  weight: 500px;
-
-  display: block;
-  background-color: #eaeaea;
-  background: -webkit-linear-gradient(#eaeaea, #ebebeb);
-  /* For Safari 5.1 to 6.0 */
-
-  background: -o-linear-gradient(#eaeaea, #ebebeb);
-  /* For Opera 11.1 to 12.0 */
-
-  background: -moz-linear-gradient(#eaeaea, #ebebeb);
-  /* For Firefox 3.6 to 15 */
-
-  background: linear-gradient(#eaeaea, #ebebeb);
-  /* Standard syntax */
-
-  box-shadow: 0px 2px 1px #5d5d5d;
-}
-
-#BG {
-  width: 600px;
-  height: 500px;
-  background: rgb(169, 169, 169);
-  outline: #373737 solid medium;
-}
-
-#bg2 {
-  width: 600px;
-  height: 5px;
-  background: #373737;
-  outline: #373737 solid thin;
-}
-
-.column-left2 {
-  float: left;
-  width: 33%;
-}
-
-.column-right2 {
-  float: right;
-  width: 33%;
-}
-
-.column-center2 {
-  display: inline-block;
-  width: 33%;
-}
-
-.class {
-  height: 80px;
-  text-align: left;
-  background: #323031;
-  width: 650px;
-  margin: 0 auto;
-  margin-top: 100px;
-}
-
-@media only screen and (max-width: 600px) {
-  #row1{
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  #row2{
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  #row3{
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  #block{
-    width: 350px;
-  }
-}
-/* counter css ends */
-
-.footer-main{
-  background: #1F76BD;
-  color: white;
-}
-
 .FAB{
   background-color: black;
 color: white;
@@ -267,79 +22,11 @@ z-index: 1000;
 position: fixed;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
 }
-
-#money{
-  display: none;
-}
-
-#money2{
-  display: none;
-}
-
-  @media only screen and (min-width: 994px) {
-    .members-row {
-      margin-left: 20%;
-    }
-  }
-
-  .about-icon{
-    background-color: lavender;
-  }
-
-.footer-ul{
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.footer-li{
-  padding-bottom: 20px;
-}
-
-.footer-icon{
-  display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: black;
-    vertical-align: middle;
-    margin-right: 5px;
-    color: #fff;
-    text-align: center;
-}
-
-.FAB:hover{
+a.FAB:hover{
   color: white;
-text-decoration: none;
-background-color: #1F76BD;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
 }
 
-.odd-about-card{
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMjgwODE0IiB5MT0iLTAuMTAyMjA4IiB4Mj0iMC43MTkxODYiIHkyPSIxLjEwMjIwOCI+PHN0b3Agb2Zmc2V0PSItMjUlIiBzdG9wLWNvbG9yPSIjMTE1YjliIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMxMjkwZjgiLz48c3RvcCBvZmZzZXQ9IjEyNSUiIHN0b3AtY29sb3I9IiMxMTViOWIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
-    color: black;
-    padding: 30px;
-    border-radius: 30px;
-    color: white;
-}
-
-.even-about-card{
-  background-color: #DEDEDE;
-   color: black;
-   padding: 30px;
-   border-radius: 30px;
-}
-
-.fadeIn{
-  margin-bottom: 50px;
-}
-
-.carousel-caption a{
-  background: #e8a443;
-  color: white;
-}
-
-.carousel-caption a:hover{
-  background: black;
-}
 
 .item{
   margin-top: 60px;
@@ -357,18 +44,6 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
 @media only screen and (max-width: 1000px) {
   .navbar-img {
     width: 140px;
-  }
-}
-
-@media only screen and (max-width: 748px) {
-  .navbar-img {
-    width: 180px;
-  }
-}
-
-@media only screen and (max-width: 748px) {
-  #navbar-logo {
-    padding-top: 0;
   }
 }
 
@@ -463,8 +138,9 @@ a:hover, a:focus, a:active {
 .navbar-main a:active,
 .navbar-main a:focus,
 .navbar-main a.is-active {
+  background: none !important;
   color: inherit;
-  border-bottom: 3px solid #e8a443;
+  border-bottom: 2px solid #fff;
 }
 .navbar-main .submenu {
   position: absolute;
@@ -499,10 +175,10 @@ a:hover, a:focus, a:active {
   font-size: 16px;
 }
 .navbar-main li a {
+  font-family: "Dosis", sans-serif;
   font-size: 18px;
   padding: 20px 15px;
   border-bottom: 2px solid transparent;
-  font-weight: 700;
 }
 .navbar-main li:hover .submenu {
   top: 62px;
@@ -743,7 +419,7 @@ a:hover, a:focus, a:active {
   margin-bottom: 10px;
 }
 .main-footer .footer-title .title-under {
-  background: black;
+  background: #fff;
   margin: 15px 0;
   text-align: left;
 }
@@ -1262,7 +938,10 @@ form .alert {
 }
 /* Extra Small devices (tablets, 480px and Down) */
 @media (max-width: 480px) {
-
+  .carousel-home .carousel-title {
+    font-size: 16px;
+    margin: 0;
+  }
   .carousel-home .carousel-subtitle {
     font-size: 14px;
     margin: 0;
@@ -1274,9 +953,9 @@ form .alert {
 /* =============================================================================
 	Animations
 ========================================================================== */
-/* .animate-onscroll {
+.animate-onscroll {
   visibility: hidden;
-} */
+}
 
 .animated {
   visibility: visible;
@@ -1460,24 +1139,4 @@ form .alert {
 .zoomIn {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
-}
-
-
-h1, h2, h3, h4, h5{
-  font-family:  "Poppins", sans-serif;
-  font-weight: 900;
-}
-
-p{
-  font-family:  "Poppins", sans-serif;
-  font-weight: 400;
-}
-.btn{
-  font-weight: bold;
-}
-
-@media only screen and (max-width: 1000px) {
-  .navbar-main li a {
-    font-size: 15px;
-}
 }
