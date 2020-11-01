@@ -254,7 +254,7 @@ body {
 /* counter css ends */
 
 .footer-main{
-  background: #1F76BD;
+  background: #115c9b;
   color: white;
 }
 
@@ -299,7 +299,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
   display: inline-block;
     width: 30px;
     height: 30px;
-    background: black;
+    background: #ce861f;
     vertical-align: middle;
     margin-right: 5px;
     color: #fff;
@@ -450,6 +450,7 @@ a:hover, a:focus, a:active {
 .navbar-top .header-contact li .fa {
   margin-right: 5px;
 }
+
 
 .navbar-main {
   margin-bottom: 0;
@@ -727,7 +728,7 @@ a:hover, a:focus, a:active {
 /* footer
 ================================= */
 .footer-top {
-  background: #115c9b;
+  background: #1F76BD;
   height: 40px;
 }
 
@@ -749,7 +750,7 @@ a:hover, a:focus, a:active {
 }
 .main-footer .footer-title .title-under:after {
   margin: 0;
-  background: #fff;
+  background: #e8a443;
 }
 .list-unstyled {
   padding-left: 0;
@@ -769,6 +770,8 @@ a:hover, a:focus, a:active {
   width: 150px;
   margin: 15px auto;
 }
+
+
 .main-footer .tweet:last-child:after {
   display: none;
 }
