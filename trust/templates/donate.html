@@ -115,60 +115,60 @@
 
 
 
-                <form action="php/mail.php" class="contact-form ajax-form">
+                <form method="POST" class="contact-form">{% csrf_token %}
 
                   <div class="row">
 
                             <div class="form-group col-md-6">
                                   <label for="dfname">FIRST NAME*</label>
-                                        <input type="text" name="dfname" class="form-control" placeholder="Name" required>
+                                        <input type="text" name="fname" class="form-control" placeholder="Name" required>
                             </div>
 
                             <div class="form-group col-md-6">
                                   <label for="dlname">LAST NAME*</label>
-                                        <input type="text" name="dlname" class="form-control" placeholder="Name" required>
+                                        <input type="text" name="lname" class="form-control" placeholder="Name" required>
                             </div>
 
                             <div class="form-group col-md-6">
                               <label for="dgender">Gender*</label>
                               <div class="col">
-                                <label for="male" class="radio-inline"><input type="radio" name="dgender" value="male" required  id="male"> MALE </label>
-                                <label for="female" class="radio-inline"><input type="radio" name="dgender" value="female" required  id="female"> FEMALE </label>
-                                <label for="other" class="radio-inline"><input type="radio" name="dgender" value="others" required  id="other"> OTHER </label>
+                                <label for="male" class="radio-inline"><input type="radio" name="gender" value="Male" required  id="male"> MALE </label>
+                                <label for="female" class="radio-inline"><input type="radio" name="gender" value="Female" required  id="female"> FEMALE </label>
+                                <label for="other" class="radio-inline"><input type="radio" name="gender" value="Others" required  id="other"> OTHER </label>
                               </div>
                             </div>
 
                               <div class="form-group col-md-6">
                                <label for="email">E-mail*</label>
-                                   <input type="email" name="demail" class="form-control" placeholder="E-mail" required>
+                                   <input type="email" name="email" class="form-control" placeholder="E-mail" required>
                                </div>
 
                                 <div class="form-group col-md-6">
                                   <label for="dcontact">Contact*</label>
-                                    <input type="tel" name="dcontact" class="form-control" placeholder="Contact no" required>
+                                    <input type="tel" name="contact" class="form-control" placeholder="Contact no" required>
                                  </div>
 
 
                                  <div class="form-group col-md-6">
                                        <label for="doccupation">Occupation*</label>
-                                             <input type="text" name="doccupation" class="form-control" placeholder="occupation" required>
+                                             <input type="text" name="occupation" class="form-control" placeholder="occupation" required>
                                  </div>
 
 
                                  <div class="form-group col-md-6">
                                        <label for="dcity">City*</label>
-                                             <input type="text" name="dcity" class="form-control" placeholder="City" required>
+                                             <input type="text" name="city" class="form-control" placeholder="City" required>
                                  </div>
 
                                  <div class="form-group col-md-12">
                                        <label for="dpincode">Zipcode*</label>
-                                      <input type="zipcode" name="dpincode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                                      <input type="zipcode" name="zipcode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
                                  </div>
 
                                  <div class="form-group col-md-6">
                                    <label for="dtype">Type Of Donation*</label>
 
-                                     <select onchange="onSelectType()" id="type1" class="form-control" name="dtype" placeholder="Type" required>
+                                     <select onchange="onSelectType()" id="type1" class="form-control" name="type" placeholder="Type" required>
                                        <option value="null">-------Select an option-------</option>
                                        <option value="Money">Money</option>
                                        <option value="Livelihood">Livelihood</option>
@@ -181,7 +181,7 @@
 
                                  <div id="money" class="form-group col-md-6">
                                        <label for="dpincode">Amount*</label>
-                                             <input type="zipcode" name="dpincode" class="form-control"
+                                             <input type="zipcode" name="zipcode" class="form-control"
                                              pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Amount" required>
                                  </div>
 
@@ -199,7 +199,7 @@
                               </div>
 
                                <div class="form-group">
-                                  <button type="submit" class="btn btn-primary pull-right">Donate</button>
+                                  <button name="submit1" type="submit" class="btn btn-primary pull-right">Donate</button>
                               </div>
 
                               <div class="clearfix"></div>
@@ -210,17 +210,17 @@
 
                   <div role="tabpanel" class="tab-pane" id="anonymous">
                     <section>
-                      <form action="php/mail.php" class="contact-form ajax-form">
+                      <form method="POST" class="contact-form">{% csrf_token %}
 
                         <div class="row">
                                   <div class="form-group col-md-6">
                                         <label for="dpincode">Zipcode*</label>
-                                              <input type="zipcode" name="dpincode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                                              <input type="zipcode" name="zipcode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
                                   </div>
                                        <div class="form-group col-md-6">
                                          <label for="dtype">Type Of Donation*</label>
 
-                                           <select id="type2" onchange="onSelectType2()" class="form-control" name="dtype" placeholder="Type" required>
+                                           <select id="type2" onchange="onSelectType2()" class="form-control" name="type" placeholder="Type" required>
                                              <option value="null">--------Select an option-------</option>
                                              <option value="Money">Money</option>
                                              <option value="Livelihood">Livelihood</option>
@@ -259,7 +259,7 @@
                                     </div>
 
                                      <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Donate</button>
+                                        <button name="submit2" type="submit" class="btn btn-primary">Donate</button>
                                     </div>
 
                                     <div class="clearfix"></div>

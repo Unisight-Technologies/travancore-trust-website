@@ -23,8 +23,24 @@ class ContactPage(View):
 
         return render(request, 'contact.html')
 
-        
+    def post(self, request, *args, **kwargs):
+        form = request.POST
+        name = form.get('name')
+        email = form.get('email')
+        message = form.get('message')
 
+        new_contact = models.Contact.objects.create(
+                    name = name,
+                    email = email,
+                    message=message,
+
+                )
+
+        new_contact.save()
+        mailHandler.sendMailToContactPerson(name, email)
+        mailHandler.sendMailToTravancoreContact(name, email, message)
+        # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+        return render(request, 'index.html')
 
 
 class FundraisPage(View):
@@ -83,3 +99,54 @@ class DonatePage(View):
     def get(self, request, *args, **kwargs):
 
         return render(request, 'donate.html')
+
+
+    def post(self, request, *args, **kwargs):
+        form = request.POST
+        if "submit1" in form:
+
+            fname = form.get('fname')
+            lname = form.get('lname')
+            email = form.get('email')
+            gender = form.get('gender')
+            contact = form.get('contact')
+            occupation = form.get('occupation')
+            city = form.get('city')
+            zipcode = form.get('zipcode')
+            type = form.get('type')
+            amount = form.get('amount')
+
+            new_reg_donater = models.Regulardonation.objects.create(
+                        fname=fname,
+                        lname=lname,
+                        email=email,
+                        gender=gender,
+                        contact=contact,
+                        occupation=occupation,
+                        city=city,
+                        zipcode=zipcode,
+                        type=type,
+                        amount=amount,
+
+                    )
+
+            mailHandler.sendMailToRegularDonator(name, amount, email)
+            mailHandler.sendMailToTravancoreRegularDonation(fname, lname, email, gender, contact, occupation, city, zipcode, type, amount)
+            messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+            return render(request, 'index.html')
+
+        elif "submit2" in form:
+            zipcode = form.get('zipcode')
+            type = form.get('type')
+            amount = form.get('amount')
+
+            new_anony_donater = models.Anonymousdonation.objects.create(
+                        zipcode=zipcode,
+                        type=type,
+                        amount=amount,
+
+                    )
+
+            mailHandler.sendMailToTravancoreIrregularDonation(zipcode, amount, type)
+            messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+            return render(request, 'index.html')
