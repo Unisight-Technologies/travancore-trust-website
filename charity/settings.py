@@ -10,8 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import django_heroku
+import socket
 import os
+import environ
 from pathlib import Path
+
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -28,6 +36,15 @@ SECRET_KEY = '1zfo)xic4mpx5_e@#!_r+y6j7v#8w%6z939_#a91y*u06eq4&1'
 DEBUG = True
 
 ALLOWED_HOSTS = ['travancore.herokuapp.com', '127.0.0.1']
+
+
+# SMTP EMAIL SETTINGS
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("EMAIL")
+EMAIL_HOST_PASSWORD = env("PASSWORD")
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 
 # Application definition

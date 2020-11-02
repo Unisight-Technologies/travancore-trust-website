@@ -18,13 +18,20 @@ class Contact(models.Model):
     email = models.EmailField()
     message = models.CharField(max_length=1000)
 
-class Donation(models.Model):
-        fname = models.CharField(max_length=100)
-        lname = models.CharField(max_length=100)
-        email = models.EmailField()
-        gender = models.CharField(max_length=100)
-        contact = models.BigIntegerField()
-        occupation = models.CharField(max_length=100)
-        city = models.CharField(max_length=100)
-        zipcode = models.BigIntegerField()
-        donation_type = models.CharField(max_length=100)
+class Regulardonation(models.Model):
+    fname = models.CharField(max_length=100)
+    lname = models.CharField(max_length=100)
+    email = models.EmailField()
+    gender = models.CharField(max_length=100)
+    contact = models.BigIntegerField()
+    occupation = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    zipcode = models.BigIntegerField()
+    donation_type = models.CharField(max_length=100)
+    amount = models.BigIntegerField(blank=True,null=True)
+
+
+class Anonymousdonation(models.Model):
+    zipcode = models.BigIntegerField()
+    donation_type = models.CharField(max_length=100)
+    amount = models.BigIntegerField(blank=True,null=True)

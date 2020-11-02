@@ -97,7 +97,7 @@
 
   					<h2 class="title-style-2">VOLUNTEER FORM <span class="title-under"></span></h2>
 
-  					<form action="php/mail.php" class="contact-form ajax-form">
+  					<form method="POST" class="contact-form">{% csrf_token %}
 
   						<div class="row">
 
@@ -139,14 +139,14 @@
 
                              <div class="form-group col-md-6">
                                    <label for="pincode">Zipcode*</label>
-                                         <input type="zipcode" name="pincode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                                         <input type="zipcode" name="zipcode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
                              </div>
                            </div>
 
 
                           <div class="form-group">
                             <label for="message">Reason*</label>
-                              <textarea name="message" rows="5" class="form-control" placeholder="Comment" required></textarea>
+                              <textarea name="reason" rows="5" class="form-control" placeholder="Comment" required></textarea>
                           </div>
 
                           <div class="form-group alerts">

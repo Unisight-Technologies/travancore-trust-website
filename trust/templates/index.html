@@ -3,6 +3,22 @@
 {% block body_block %}
     <!-- Carousel
     ================================================== -->
+
+    <!-- alert-messages -->
+                        <div style="width:100%; margin-left: 1px;" class="row">
+                          {% if messages %}
+                              {% for message in messages %}
+                              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                  <!-- alert-messages-ends -->
+
     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
 
           <!-- Indicators -->
@@ -85,6 +101,8 @@
           </a>
 
     </div><!-- /.carousel -->
+
+
 
     <a class="btn btn-lg FAB" href="{% url 'donate' %}">
       Donate<br><i style="color: #1F76BD;" class="fas fa-hand-holding-heart"></i><br>Now!
