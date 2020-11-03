@@ -30,7 +30,7 @@
       <form class=""action="https://securegw-stage.paytm.in/order/process" method="post" name="paytm">
         {% csrf_token %}
         {% for key, value in param_dict.items %}
-        <input style="width: 700px;"name="{{key}}" value="{{value}}"><br>
+        <input hidden style="width: 700px;"name="{{key}}" value="{{value}}"><br>
         {% endfor %}
       </form>
 

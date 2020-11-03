@@ -180,7 +180,7 @@ class DonatePage(View):
 
 
 class PaytmView(TemplateView):
-    template_name = 'paytm.html'
+    template_name = 'payment/paytm.html'
 
 def payment_view(request):
 
@@ -199,9 +199,9 @@ def payment_view(request):
 
     param_dict['CHECKSUMHASH'] = PaytmChecksum.generateSignature(param_dict, MERCHANT_KEY)
     print(param_dict['CHECKSUMHASH'])
-    return render(request, 'paytm.html', {'param_dict':param_dict})
+    return render(request, 'payment/paytm.html', {'param_dict':param_dict})
 
-@csrf_exempt 
+@csrf_exempt
 def handle_request(request):
     # import checksum generation utility
 
@@ -224,7 +224,7 @@ def handle_request(request):
     	if paytmParams['RESPCODE'] == '01':
             pass
 
-    return render(request, 'payment_status.html', {'response':paytmParams})
+    return render(request, 'payment/payment_status.html', {'response':paytmParams})
 
 def after_payment(request):
     if request.method == "POST":
@@ -235,4 +235,4 @@ def after_payment(request):
                 'txn_amount':request.POST.get('txn_amount'),
                 'banktxnid':request.POST.get('bankid')
             }
-            return render(request, 'payment-complete.html', context)
+            return render(request, 'payment/payment-complete.html', context)
