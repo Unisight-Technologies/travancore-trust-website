@@ -1,9 +1,5 @@
 charity/charity/__pycache__
 charity/trust/__pycache__
 charity/trust/migrations/__pycache__
-
-
-#Environments
 trust/.env
-
 charity/.env

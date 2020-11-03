@@ -29,9 +29,11 @@ class Regulardonation(models.Model):
     zipcode = models.BigIntegerField()
     type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
+    checksum_id = models.CharField(max_length=100, default=0)
 
 
 class Anonymousdonation(models.Model):
     zipcode = models.BigIntegerField()
     type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
+    checksum_id = models.CharField(max_length=100, default=0)

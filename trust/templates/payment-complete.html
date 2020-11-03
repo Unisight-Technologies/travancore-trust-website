@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body_block %}
+{% load static %}
+<section>
+
+<div class="container">
+  <h1 class="text-center">Payment Status of Order Id- {{ order_id }}:</h1>
+    <p style="font-family:'Comfortaa';" class="text-center">{{ response }}</p>
+    <p style="font-family:'Comfortaa';" class="text-center">Amount: Rs.{{ txn_amount }}</p>
+    <p style="font-family:'Comfortaa';" class="text-center">Bank Transaction ID: {{ banktxnid }}</p>
+    <br>
+    <p style="font-family:'Comfortaa';" class="text-center">We have sent you an email of your order.</p><br>
+</div>
+
+</section>
+{% endblock %}

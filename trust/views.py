@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 # Create your views here.
 from . import models
 from django.contrib import messages
 from . import mailHandler
+from django.http import HttpResponseRedirect, HttpResponse
+from trust.paytm import PaytmChecksum
+from django.views.decorators.csrf import csrf_exempt
+
+MERCHANT_KEY = 'rX0at#Fkd&gd38w6'
+MERCHANT_ID = 'FJqxMp75384358553137'
 
 
 class HomePage(View):
@@ -37,10 +43,13 @@ class ContactPage(View):
                 )
 
         new_contact.save()
+        context = {
+        'submitted':True
+        }
         mailHandler.sendMailToContactPerson(name, email)
         mailHandler.sendMailToTravancoreContact(name, email, message)
-        # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
-        return render(request, 'index.html')
+    #    messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+        return render(request, 'index.html', context=context)
 
 
 class FundraisPage(View):
@@ -80,8 +89,12 @@ class VolunteerPage(View):
         new_volunteer.save()
         mailHandler.sendMailToVolunteer(name, email)
         mailHandler.sendMailToTravancoreVolunteer(name, email, contact)
-        messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
-        return render(request, 'index.html')
+        # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+
+        context = {
+        'submitted':True
+        }
+        return render(request, 'index.html', context=context)
 
 
 class ProjectPage(View):
@@ -117,7 +130,6 @@ class DonatePage(View):
             amount = None
             if type == "Money":
                 amount = form.get('amount')
-            print(amount)
             new_reg_donater = models.Regulardonation.objects.create(
                         fname=fname,
                         lname=lname,
@@ -131,11 +143,16 @@ class DonatePage(View):
                         amount=amount,
 
                     )
+            # mailHandler.sendMailToRegularDonator(fname, amount, email)
+            # mailHandler.sendMailToTravancoreRegularDonation(fname, lname, email, gender, contact, occupation, city, zipcode, type)
+            # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+            request.session['id'] = new_reg_donater.id
 
-            mailHandler.sendMailToRegularDonator(fname, amount, email)
-            mailHandler.sendMailToTravancoreRegularDonation(fname, lname, email, gender, contact, occupation, city, zipcode, type)
-            messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
-            return render(request, 'index.html')
+            context = {
+            'submitted':True
+            }
+
+            return HttpResponseRedirect('/payment/')
 
             # Anonymous Donation
         elif "submit2" in form:
@@ -153,5 +170,69 @@ class DonatePage(View):
                     )
 
             mailHandler.sendMailToTravancoreIrregularDonation(zipcode, amount, type)
-            messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
-            return render(request, 'index.html')
+            # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
+
+            context = {
+            'submitted':True
+            }
+
+            return render(request, 'index.html', context=context)
+
+
+class PaytmView(TemplateView):
+    template_name = 'paytm.html'
+
+def payment_view(request):
+
+    current_donator = models.Regulardonation.objects.get(id=request.session['id'])
+
+    param_dict={
+                'MID':MERCHANT_ID,
+                'ORDER_ID':str(request.session['id']),
+                'TXN_AMOUNT':str(current_donator.amount),
+                'CUST_ID':current_donator.email,
+                'INDUSTRY_TYPE_ID':'Retail',
+                'WEBSITE':'WEBSTAGING',
+                'CHANNEL_ID':'WEB',
+    	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+            }
+
+    param_dict['CHECKSUMHASH'] = PaytmChecksum.generateSignature(param_dict, MERCHANT_KEY)
+    print(param_dict['CHECKSUMHASH'])
+    return render(request, 'paytm.html', {'param_dict':param_dict})
+
+@csrf_exempt 
+def handle_request(request):
+    # import checksum generation utility
+
+    print("HERE")
+    paytmChecksum = ""
+
+# Create a Dictionary from the parameters received in POST
+# received_data should contains all data received in POST
+    form = request.POST
+    paytmParams = {}
+
+    for i in form.keys():
+        paytmParams[i] = form[i]
+        if i == 'CHECKSUMHASH':
+            checksum = form[i]
+    # Verify checksum
+    # Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
+    isValidChecksum = PaytmChecksum.verifySignature(paytmParams, MERCHANT_KEY, checksum)
+    if isValidChecksum:
+    	if paytmParams['RESPCODE'] == '01':
+            pass
+
+    return render(request, 'payment_status.html', {'response':paytmParams})
+
+def after_payment(request):
+    if request.method == "POST":
+        if request.POST.get('respcode') == '01':
+            context={
+                'order_id':request.POST.get('order_id'),
+                'response':request.POST.get('response'),
+                'txn_amount':request.POST.get('txn_amount'),
+                'banktxnid':request.POST.get('bankid')
+            }
+            return render(request, 'payment-complete.html', context)

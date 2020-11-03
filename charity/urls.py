@@ -28,5 +28,8 @@ urlpatterns = [
     path('donate/',views.DonatePage.as_view(),name='donate'),
     path('project/',views.ProjectPage.as_view(),name='project'),
     path('volunteer/',views.VolunteerPage.as_view(), name='volunteer'),
+    path('payment/', views.payment_view, name="payment"),
+    path('payment-complete/', views.after_payment, name="payment-complete"),
+    path('handle_request/', views.handle_request, name="handle_request"),
 
 ]
