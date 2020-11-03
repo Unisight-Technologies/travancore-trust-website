@@ -33,9 +33,9 @@ def sendMailToTravancoreVolunteer(name, email, contact):
 
 # Regular Donator
 
-def sendMailToRegularDonator(name, amount, send_to):
+def sendMailToRegularDonator(fname, amount, send_to):
     subject = "Regarding Donation in The Travancore Charitable Trust"
-    message = "Hello "+name+"! \n\nWe have successfully received your donation.\nWe are glad that you have decided to help some innocent and poor souls. \n\n Thank You for your graet contibution.\n\nWe have received "+amount+" from you.\n\nRegards\n-The Travancore Trust"
+    message = "Hello "+fname+"! \n\nWe have successfully received your donation.\nWe are glad that you have decided to help some innocent and poor souls. \n\n Thank You for your graet contibution.\n\nWe have received Amount: "+str(amount)+" from you.\n\nRegards\n-The Travancore Trust"
     send_mail(
         subject,
         message,

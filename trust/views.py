@@ -114,7 +114,9 @@ class DonatePage(View):
             city = form.get('city')
             zipcode = form.get('zipcode')
             type = form.get('type')
-            amount = form.get('amount')
+            amount = None
+            if type == "Money":
+                amount = form.get('amount')
 
             new_reg_donater = models.Regulardonation.objects.create(
                         fname=fname,
@@ -130,11 +132,12 @@ class DonatePage(View):
 
                     )
 
-            mailHandler.sendMailToRegularDonator(name, amount, email)
+            mailHandler.sendMailToRegularDonator(fname, amount, email)
             mailHandler.sendMailToTravancoreRegularDonation(fname, lname, email, gender, contact, occupation, city, zipcode, type, amount)
             messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
             return render(request, 'index.html')
 
+            # Anonymous Donation
         elif "submit2" in form:
             zipcode = form.get('zipcode')
             type = form.get('type')

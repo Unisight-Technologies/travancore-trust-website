@@ -27,11 +27,11 @@ class Regulardonation(models.Model):
     occupation = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     zipcode = models.BigIntegerField()
-    donation_type = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
 
 
 class Anonymousdonation(models.Model):
     zipcode = models.BigIntegerField()
-    donation_type = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
