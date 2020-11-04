@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "travancore",
+  "private_key_id": "8e2056df4dfa167d15680aca386eaa5b556351d7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCIkU496Afw94Ow\nMFJ0CktFPBP5pyxc7fWf+lqKehlG8/v4dnHqIytjBvl5HujuHUpFY8i0hfichMUg\n6qvGlo0xznBlvcw071g7QgBYB5nnqhNfD86f67O/WnwI5NrNytU2IQQ9m3HgTvDF\njeDQhV8N2k0fpBnZTjXmLFe3HPQuOlpa0hOTtfz6mBfk0NBHHlEM8tp/JjDdwF85\nHpO2ppfkvW02fv2eB/PUpa+5QdJg7GxF4L93wkTl8u1lFG4P7Sg56falpZ/Q4pTn\nUtoI+tv7A2l/UmiuSvbZU4Bmc0YwNDgGozjn0DbEqYOY/Y607xUDyV35LB33tSdf\nOUWRpLmPAgMBAAECggEAB17YOy0XqKCjIdIp0QtxLoZkiZfFJCrPk9e+JTUbwiGO\n2sUBtuI5CDorIqdRaPB5vq74+Q018rSTswgXRzt+2U5L8KHCsKSuPVx9ikK2wrMC\nIqJGw4jEBbLLeOtpB6xHv4keoniON83q3q6ekIJyM9wxR2Di6EB5VjfUcBSG9Suq\n3+DJlCAPhjqrQHRztHQEBCq8dIp0qeDTBya5RD4qx3Y/ECKvrPHENHfJvIHZnFFA\njP8ClilJJiL2AUGXiNBZIXFadPpJ+yegPFRIw+hHjabYj0C90EjkGc77AFVkrPXH\ntIzI5T1WwTQjpfZ0NuUr4GXs0SdzeLxbeYUDtbhpAQKBgQC769Z4qni9mU7hfsM4\nLDBp0cHuKFkGD/S2/xE9dbKi6ZI8AZxELiC9SCpSVfMPfyNm2OVq2tIKuLlpyXzB\n8KVuJdPo1aqM1kBU7f1vfh8/6zYtbfcQujyNnE4AWbTHyYr6pq9fa5jA5bocB7RW\nyRZvvfFIHk3v5bJue62M2zUvgQKBgQC6CtYnHPFrzIko2uRmUPF89648g3cF3fkL\ndVjw/+0m4FCS0QXE08Cf/HNjcj9WFg1IbfRXD70bKx4lI56QOjaTzkdsPcvQgRFS\nSezAS9BJDKkaVScnh997f9H7JD0CZHTvU+cBpzEp+s7q7PsutDt1LDyaOmMXsS5+\n2c/P9w9xDwKBgAutz4l2RsS5x246O5W9IVEiSSQs+8NlsHbDCWZBb1WyoHT8QKL4\nHu7EkmTFlLKM2z1kE3X9nXovGs7ZR9ihxRZAYZgh11SjaCIfHFYWh4iobJiMMgOn\nH2ZJpYteB982xl1niJSskjTC0js1u159ZtiQ/HLX904Gf31gUFvlr7uBAoGALc/B\nUDxWTp89HyxXlcJU1NsAsrIEuxMf4mxxDFdZBHu0G5MRApjKFBtMJq7ZXc9sUeuR\ngWbEwE3rzGVrBETxb5AaElNdPuipZUQC4o9IqNRPR8a0L43LwFOHV3pi85XdHZnh\nhoyvFJFIJp1YdPW4tm/ANJIwGINu2Zm1DJbf3I0CgYBNdq0a5kc2APvebcqXP1z0\nmyT6cm+pwBdaPWv/cqIyUKQVZLktQ+SrxBKSHPksZrkPaWTuIL3kCkHHCMO6kCpe\nXL7rhYLzh1WVy8854CxzFbHA4xPAannrDaK+sjmzFN97nXTWn7HKedKx9q1Vtc57\noMlHoSmiX8bovDWTD3idDA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "travancore-trust@travancore.iam.gserviceaccount.com",
+  "client_id": "109200921252856473754",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/travancore-trust%40travancore.iam.gserviceaccount.com"
+}
