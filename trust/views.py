@@ -7,7 +7,7 @@ from . import mailHandler
 from django.http import HttpResponseRedirect, HttpResponse
 from trust.paytm import PaytmChecksum
 from django.views.decorators.csrf import csrf_exempt
-
+from charity import sheets
 
 MERCHANT_KEY = 'rX0at#Fkd&gd38w6'
 MERCHANT_ID = 'FJqxMp75384358553137'
@@ -15,7 +15,6 @@ MERCHANT_ID = 'FJqxMp75384358553137'
 
 class HomePage(View):
     def get(self, request, *args, **kwargs):
-
         return render(request, 'index.html')
 
 
@@ -119,7 +118,11 @@ class DonatePage(View):
 
     def post(self, request, *args, **kwargs):
         form = request.POST
+
+
         if "submit1" in form:
+
+            request.session['isRegularDonator'] = True
 
             fname = form.get('fname')
             lname = form.get('lname')
@@ -146,19 +149,30 @@ class DonatePage(View):
                         amount=amount,
 
                     )
+            name = f"{fname} {lname}"
             # mailHandler.sendMailToRegularDonator(fname, amount, email)
             # mailHandler.sendMailToTravancoreRegularDonation(fname, lname, email, gender, contact, occupation, city, zipcode, type)
             # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
             request.session['id'] = new_reg_donater.id
 
-            context = {
-            'submitted':True
-            }
+            if type == "Money":
 
-            return HttpResponseRedirect('/payment/')
+                return HttpResponseRedirect('/payment/')
+            else:
+                context = {
+                'submitted':True
+                }
+                sheets.RegularDonation(name, email, contact, gender, occupation, city, zipcode, type, amount)
 
-            # Anonymous Donation
+                return render(request, 'index.html', context=context)
+
+
+
+            # ----------Anonymous Donation------------
         elif "submit2" in form:
+
+            request.session['isRegularDonator'] = False
+
             zipcode = form.get('zipcode')
             type = form.get('type')
             amount = None
@@ -172,14 +186,24 @@ class DonatePage(View):
 
                     )
 
-            mailHandler.sendMailToTravancoreIrregularDonation(zipcode, amount, type)
+            request.session['id'] = new_anony_donater.id
+
+            if type == "Money":
+
+                return HttpResponseRedirect('/payment/')
+
+            else:
+                sheets.AnonymousDonation(zipcode, type, amount)
+
+                context = {
+                'submitted':True
+                }
+
+                return render(request, 'index.html', context=context)
+
+            # mailHandler.sendMailToTravancoreIrregularDonation(zipcode, amount, type)
             # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
 
-            context = {
-            'submitted':True
-            }
-
-            return render(request, 'index.html', context=context)
 
 
 class PaytmView(TemplateView):
@@ -187,28 +211,41 @@ class PaytmView(TemplateView):
 
 def payment_view(request):
 
-    current_donator = models.Regulardonation.objects.get(id=request.session['id'])
+    isRegularDonator = request.session['isRegularDonator']
+    current_donator = None
 
-    param_dict={
-                'MID':MERCHANT_ID,
-                'ORDER_ID':str(request.session['id']),
-                'TXN_AMOUNT':str(current_donator.amount),
-                'CUST_ID':current_donator.email,
-                'INDUSTRY_TYPE_ID':'Retail',
-                'WEBSITE':'WEBSTAGING',
-                'CHANNEL_ID':'WEB',
-    	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
-            }
+    if (isRegularDonator):
+        current_donator = models.Regulardonation.objects.get(id=request.session['id'])
+        param_dict={
+                    'MID':MERCHANT_ID,
+                    'ORDER_ID':str(request.session['id']),
+                    'TXN_AMOUNT':str(current_donator.amount),
+                    'CUST_ID':current_donator.email,
+                    'INDUSTRY_TYPE_ID':'Retail',
+                    'WEBSITE':'WEBSTAGING',
+                    'CHANNEL_ID':'WEB',
+        	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+                }
+    else:
+        current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
+        param_dict={
+                    'MID':MERCHANT_ID,
+                    'ORDER_ID':str(request.session['id']),
+                    'TXN_AMOUNT':str(current_donator.amount),
+                    'CUST_ID':'',
+                    'INDUSTRY_TYPE_ID':'Retail',
+                    'WEBSITE':'WEBSTAGING',
+                    'CHANNEL_ID':'WEB',
+        	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+                }
+
 
     param_dict['CHECKSUMHASH'] = PaytmChecksum.generateSignature(param_dict, MERCHANT_KEY)
-    print(param_dict['CHECKSUMHASH'])
     return render(request, 'payment/paytm.html', {'param_dict':param_dict})
 
 @csrf_exempt
 def handle_request(request):
     # import checksum generation utility
-
-    print("HERE")
     paytmChecksum = ""
 
 # Create a Dictionary from the parameters received in POST
@@ -232,6 +269,32 @@ def handle_request(request):
 def after_payment(request):
     if request.method == "POST":
         if request.POST.get('respcode') == '01':
+
+            if(request.session['isRegularDonator']):
+
+                current_donator = models.Regulardonation.objects.get(id=request.session['id'])
+
+                name = f"{current_donator.fname} {current_donator.lname}"
+
+                sheets.RegularDonation(
+                name, current_donator.email, current_donator.contact,
+                current_donator.gender, current_donator.occupation, current_donator.city,
+                current_donator.zipcode, current_donator.type, current_donator.amount
+                )
+
+            else:
+                current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
+                sheets.AnonymousDonation(current_donator.zipcode, current_donator.type, current_donator.amount)
+
+
+            context={
+                'order_id':request.POST.get('order_id'),
+                'response':request.POST.get('response'),
+                'txn_amount':request.POST.get('txn_amount'),
+                'banktxnid':request.POST.get('bankid')
+            }
+            return render(request, 'payment/payment-complete.html', context)
+        else:
             context={
                 'order_id':request.POST.get('order_id'),
                 'response':request.POST.get('response'),

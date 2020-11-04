@@ -1,28 +1,24 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-
-
-
 scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("charity/creds.json", scope)
 
 client = gspread.authorize(creds)
 
-
+sheet = client.openall()[0]
 
 def RegularDonation(name, email, contact, gender, occupation, city, zipcode, type, amount):
-
-
-    sheet = client.open("Travancore").sheet1
-
-    data = sheet.get_all_records()
+    my_sheet = sheet.worksheets()[0]
+    data = my_sheet.get_all_records()
 
     insertRow = [name, email, contact, gender, occupation, city, zipcode, type, amount]
-    sheet.insert_row(len(data))
+    my_sheet.insert_row(insertRow, len(data)+2)
 
-
-def AnonymousDonation(zipcode, type, amunt):
-
-
-    sheet = client.open("Travancore").sheet2
+def AnonymousDonation(zipcode, type, amount):
+    my_sheet = sheet.worksheets()[1]
+    # sheet = client.open("Travancore").sheet2
+    data = my_sheet.get_all_records()
+    insertRow = [zipcode, type, amount]
+    my_sheet.insert_row(insertRow, len(data)+2)
+    
