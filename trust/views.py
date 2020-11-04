@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from trust.paytm import PaytmChecksum
 from django.views.decorators.csrf import csrf_exempt
 
+
 MERCHANT_KEY = 'rX0at#Fkd&gd38w6'
 MERCHANT_ID = 'FJqxMp75384358553137'
 
@@ -34,6 +35,8 @@ class ContactPage(View):
         name = form.get('name')
         email = form.get('email')
         message = form.get('message')
+
+        insertRow = ["name","email","message"]
 
         new_contact = models.Contact.objects.create(
                     name = name,
