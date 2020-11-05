@@ -240,9 +240,20 @@
                                       <div class="row">
 
                                         <div id="money2" class="form-group col-md-6">
-                                              <label for="dpincode">Amount*</label>
+                                              <label for="">Amount*</label>
                                                     <input type="zipcode" name="amount" class="form-control"
                                                      placeholder="Amount">
+                                        </div>
+
+                                        <div id="email1" class="form-group col-md-6">
+                                              <label for="">Email*</label>
+                                              <div class="popup" onclick="showPopup()">
+                                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                              <span class="popuptext" id="myPopup">
+                                                We only need your email to send you payment receipt.<br><br>
+                                                We won't be storing your email in our database.
+                                              </span>
+                                            </div>
                                         </div>
 
                                       </div>
@@ -279,5 +290,6 @@
         </div>
       </div>
       <script src="{% static 'assets/js/donate.js' %}"></script>
+
 
 {% endblock %}

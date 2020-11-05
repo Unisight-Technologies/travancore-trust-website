@@ -33,7 +33,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = '1zfo)xic4mpx5_e@#!_r+y6j7v#8w%6z939_#a91y*u06eq4&1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['travancore.herokuapp.com', '127.0.0.1']
 

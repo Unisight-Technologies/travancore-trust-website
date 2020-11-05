@@ -15,6 +15,7 @@ MERCHANT_ID = 'FJqxMp75384358553137'
 
 class HomePage(View):
     def get(self, request, *args, **kwargs):
+
         return render(request, 'index.html')
 
 
@@ -190,6 +191,8 @@ class DonatePage(View):
 
             if type == "Money":
 
+                request.session['email'] = form.get('email')
+
                 return HttpResponseRedirect('/payment/')
 
             else:
@@ -211,37 +214,41 @@ class PaytmView(TemplateView):
 
 def payment_view(request):
 
-    isRegularDonator = request.session['isRegularDonator']
-    current_donator = None
+    try:
 
-    if (isRegularDonator):
-        current_donator = models.Regulardonation.objects.get(id=request.session['id'])
-        param_dict={
-                    'MID':MERCHANT_ID,
-                    'ORDER_ID':str(request.session['id']),
-                    'TXN_AMOUNT':str(current_donator.amount),
-                    'CUST_ID':current_donator.email,
-                    'INDUSTRY_TYPE_ID':'Retail',
-                    'WEBSITE':'WEBSTAGING',
-                    'CHANNEL_ID':'WEB',
-        	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
-                }
-    else:
-        current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
-        param_dict={
-                    'MID':MERCHANT_ID,
-                    'ORDER_ID':str(request.session['id']),
-                    'TXN_AMOUNT':str(current_donator.amount),
-                    'CUST_ID':'',
-                    'INDUSTRY_TYPE_ID':'Retail',
-                    'WEBSITE':'WEBSTAGING',
-                    'CHANNEL_ID':'WEB',
-        	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
-                }
+        isRegularDonator = request.session['isRegularDonator']
+        current_donator = None
+
+        if (isRegularDonator):
+            current_donator = models.Regulardonation.objects.get(id=request.session['id'])
+            param_dict={
+                        'MID':MERCHANT_ID,
+                        'ORDER_ID':str(request.session['id']),
+                        'TXN_AMOUNT':str(current_donator.amount),
+                        'CUST_ID':current_donator.email,
+                        'INDUSTRY_TYPE_ID':'Retail',
+                        'WEBSITE':'WEBSTAGING',
+                        'CHANNEL_ID':'WEB',
+            	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+                    }
+        else:
+            current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
+            param_dict={
+                        'MID':MERCHANT_ID,
+                        'ORDER_ID':str(request.session['id']),
+                        'TXN_AMOUNT':str(current_donator.amount),
+                        'CUST_ID':request.session['email'],
+                        'INDUSTRY_TYPE_ID':'Retail',
+                        'WEBSITE':'WEBSTAGING',
+                        'CHANNEL_ID':'WEB',
+            	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+                    }
 
 
-    param_dict['CHECKSUMHASH'] = PaytmChecksum.generateSignature(param_dict, MERCHANT_KEY)
-    return render(request, 'payment/paytm.html', {'param_dict':param_dict})
+        param_dict['CHECKSUMHASH'] = PaytmChecksum.generateSignature(param_dict, MERCHANT_KEY)
+        return render(request, 'payment/paytm.html', {'param_dict':param_dict})
+    except:
+        return render(request, 'index.html')
 
 @csrf_exempt
 def handle_request(request):
@@ -267,7 +274,10 @@ def handle_request(request):
     return render(request, 'payment/payment_status.html', {'response':paytmParams})
 
 def after_payment(request):
+
     if request.method == "POST":
+
+        # Successfull payment
         if request.POST.get('respcode') == '01':
 
             if(request.session['isRegularDonator']):
@@ -285,17 +295,32 @@ def after_payment(request):
             else:
                 current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
                 sheets.AnonymousDonation(current_donator.zipcode, current_donator.type, current_donator.amount)
+                del request.session['email']
 
 
             context={
+                'status':True,
                 'order_id':request.POST.get('order_id'),
                 'response':request.POST.get('response'),
                 'txn_amount':request.POST.get('txn_amount'),
                 'banktxnid':request.POST.get('bankid')
             }
+            del request.session['id']
+            del request.session['isRegularDonator']
+
             return render(request, 'payment/payment-complete.html', context)
+
+        # Unsucessful payment
         else:
+            if(request.session['isRegularDonator']):
+                del request.session['id']
+            else:
+                del request.session['id'] 
+                del request.session['email']
+            del request.session['isRegularDonator']
+
             context={
+                'status':False,
                 'order_id':request.POST.get('order_id'),
                 'response':request.POST.get('response'),
                 'txn_amount':request.POST.get('txn_amount'),
