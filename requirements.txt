@@ -6,3 +6,4 @@ pycryptodome
 gspread
 oauth2client
 jsonlib-python3
+whitenoise
