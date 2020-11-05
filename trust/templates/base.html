@@ -25,6 +25,9 @@
 
         <!-- Font awesome -->
         <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
         <!-- Owl carousel -->
         <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
@@ -109,7 +112,11 @@
                     <li><a href="{% url 'index' %}">HOME</a></li>
                     <li><a href="{% url 'about' %}">ABOUT</a></li>
                     <li><a href="{% url 'events' %}">EVENTS</a></li>
-                    <li><a href="{% url 'project' %}">PROJECTS</a></li>
+                    <li><a href="{% url 'project' %}">PROJECTS
+                      <ul class="submenu">
+                        <li class="submenu-item"><a href="{% url 'events' %}"> Project abc</a></li>
+                        <li class="submenu-item"><a href="{% url 'fundraising' %}"> Project def</a></li>
+                      </ul> </a> </li>
                     <li><a href="{% url 'volunteer' %}">VOLUNTEER</a></li>
                     <li><a href="{% url 'contact' %}">CONTACT US</a></li>
                     </ul>
@@ -158,10 +165,16 @@
                                             <li class="submenu-item"><a href="{% url 'fundraising' %}"> FUND RAISING</a></li>
                                           </ul> -->
                                         </li>
-                                        <li><a href="{% url 'project' %}"><span class="fa fa-chevron-right mr-2" style="color:#ce861f;"></span> PROJECTS</a></li>
+                                        <li><a href="{% url 'project' %}"><span class="fa fa-chevron-right mr-2" style="color:#ce861f;"></span> PROJECTS</a>
+                                          <!-- <ul class="submenu">
+                                            <li class="submenu-item"><a href="{% url 'events' %}"> EVENTS</a></li>
+                                            <li class="submenu-item"><a href="{% url 'fundraising' %}"> FUND RAISING</a></li>
+                                          </ul>--> </li>
                                         <li><a href="{% url 'volunteer' %}"><span class="fa fa-chevron-right mr-2" style="color:#ce861f;"></span> VOLUNTEER</a></li>
                                         <li><a href="{% url 'contact' %}"><span class="fa fa-chevron-right mr-2" style="color:#ce861f;"></span> CONTACT US</a></li>
                                   </ul>
+                                    <a href="#"> <span class="social-media"> <i class="fa fa-facebook"></i> </span></a>
+                                    <a href="#"> <span class="social-media"> <i class="fa fa-twitter"></i> </span> </a>
                               </div>
 
                           </div>
@@ -177,7 +190,7 @@
                               <div class="footer-content">
                                 <ul class="footer-ul">
                 	                <li class="footer-li"><a href="https://www.google.co.in/maps/search/Chennithala,+PO+Mavelikkara,+Allappey/@9.2616822,76.4986127,13z/data=!3m1!4b1">
-                                    <span class="contact-icon footer-icon"> <i class="fa fa-map-marker"></i>
+                                    <span class="contact-icon footer-icon"> <i class="fa fa-map-marker"></i></span>
                                   </span>Kochupurayil building, Chennithala, PO Mavelikkara, Allappey. Pincode:- 690105</span>
                                 </a>
                                 </li>
