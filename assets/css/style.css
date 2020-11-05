@@ -13,6 +13,13 @@ body {
   font-family: "Open sans", sans-serif;
   color: #115c9b;
 }
+.gify{
+  body {
+    background:url('static\assets\images\building.gif') repeat-y 100% 100% fixed;
+    height:100%;
+    width:100%;
+}
+}
 .FAB{
   background-color: black;
 color: white;
@@ -23,11 +30,21 @@ position: fixed;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.20);
 }
 a.FAB:hover{
-  color: white;
+  
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
+}
+.fa-instagram{
+    margin-top: 8px;
+    padding-top: 5px;
+    background: #ce861f;
+    color: white;
 }
 
 
+
+.fa{
+  transform: translate(0, 0);
+}
 .item{
   margin-top: 60px;
   height: 570px;
