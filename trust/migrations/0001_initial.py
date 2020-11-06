@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('trust', '0009_auto_20201106_1754'),
     ]
 
     operations = [
