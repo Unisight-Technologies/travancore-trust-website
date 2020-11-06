@@ -20,7 +20,7 @@ class Contact(models.Model):
     message = models.CharField(max_length=1000)
 
 class Regulardonation(models.Model):
-    id = models.UUIDField(
+    uuid = models.UUIDField(
          primary_key = True,
          default = uuid.uuid4,
          editable = False)
@@ -38,7 +38,7 @@ class Regulardonation(models.Model):
 
 
 class Anonymousdonation(models.Model):
-    id = models.UUIDField(
+    uuid = models.UUIDField(
          primary_key = True,
          default = uuid.uuid4,
          editable = False)
