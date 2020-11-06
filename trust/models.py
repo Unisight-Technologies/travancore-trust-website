@@ -20,8 +20,10 @@ class Contact(models.Model):
     message = models.CharField(max_length=1000)
 
 class Regulardonation(models.Model):
-    uuid = models.UUIDField(
-        default=uuid.uuid4, unique=True)
+    id = models.UUIDField(
+         primary_key = True,
+         default = uuid.uuid4,
+         editable = False)
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
     email = models.EmailField()
@@ -36,8 +38,10 @@ class Regulardonation(models.Model):
 
 
 class Anonymousdonation(models.Model):
-    uuid = models.UUIDField(
-         default=uuid.uuid4, unique=True)
+    id = models.UUIDField(
+         primary_key = True,
+         default = uuid.uuid4,
+         editable = False)
     zipcode = models.BigIntegerField()
     type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
