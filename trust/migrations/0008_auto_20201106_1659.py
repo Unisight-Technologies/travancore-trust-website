@@ -10,23 +10,4 @@ class Migration(migrations.Migration):
         ('trust', '0007_auto_20201106_1645'),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='anonymousdonation',
-            name='uuid',
-        ),
-        migrations.RemoveField(
-            model_name='regulardonation',
-            name='uuid',
-        ),
-        migrations.AlterField(
-            model_name='anonymousdonation',
-            name='id',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False),
-        ),
-        migrations.AlterField(
-            model_name='regulardonation',
-            name='id',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False),
-        ),
-    ]
+    operations = []

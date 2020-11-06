@@ -14,23 +14,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='anonymousdonation',
             name='id',
-            field=models.AutoField(auto_created=True, default=0, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.UUIDField(auto_created=True, default=uuid.uuid4, unique=True, primary_key=True, serialize=False, verbose_name='ID'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='regulardonation',
             name='id',
-            field=models.AutoField(auto_created=True, default=0, primary_key=True, serialize=False, verbose_name='ID'),
+            field=models.UUIDField(auto_created=True, default=uuid.uuid4, unique=True, primary_key=True, serialize=False, verbose_name='ID'),
             preserve_default=False,
-        ),
-        migrations.AlterField(
-            model_name='anonymousdonation',
-            name='uuid',
-            field=models.UUIDField(default=uuid.uuid4, unique=True),
-        ),
-        migrations.AlterField(
-            model_name='regulardonation',
-            name='uuid',
-            field=models.UUIDField(default=uuid.uuid4, unique=True),
         ),
     ]
