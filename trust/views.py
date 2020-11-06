@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from trust.paytm import PaytmChecksum
 from django.views.decorators.csrf import csrf_exempt
 from charity import sheets
+import uuid
 
 MERCHANT_KEY = 'rX0at#Fkd&gd38w6'
 MERCHANT_ID = 'FJqxMp75384358553137'
@@ -142,6 +143,7 @@ class DonatePage(View):
             if type == "Money":
                 amount = form.get('amount')
             new_reg_donater = models.Regulardonation.objects.create(
+                        id=uuid.uuid4(),
                         fname=fname,
                         lname=lname,
                         email=email,
@@ -158,7 +160,7 @@ class DonatePage(View):
             # mailHandler.sendMailToRegularDonator(fname, amount, email)
             # mailHandler.sendMailToTravancoreRegularDonation(fname, lname, email, gender, contact, occupation, city, zipcode, type)
             # messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
-            request.session['id'] = new_reg_donater.id
+            request.session['id'] = str(new_reg_donater.id)
 
             if type == "Money":
 
@@ -185,13 +187,14 @@ class DonatePage(View):
                 amount = form.get('amount')
 
             new_anony_donater = models.Anonymousdonation.objects.create(
+                        id=uuid.uuid4(),
                         zipcode=zipcode,
                         type=type,
                         amount=amount,
 
                     )
 
-            request.session['id'] = new_anony_donater.id
+            request.session['id'] = str(new_anony_donater.id)
 
             if type == "Money":
 
@@ -252,30 +255,36 @@ def payment_view(request):
         param_dict['CHECKSUMHASH'] = PaytmChecksum.generateSignature(param_dict, MERCHANT_KEY)
         return render(request, 'payment/paytm.html', {'param_dict':param_dict})
     except:
-        return render(request, 'index.html')
+        return render(request, 'error/404.html')
 
 @csrf_exempt
 def handle_request(request):
-    # import checksum generation utility
-    paytmChecksum = ""
 
-# Create a Dictionary from the parameters received in POST
-# received_data should contains all data received in POST
-    form = request.POST
-    paytmParams = {}
+    if request.method == "POST":
 
-    for i in form.keys():
-        paytmParams[i] = form[i]
-        if i == 'CHECKSUMHASH':
-            checksum = form[i]
-    # Verify checksum
-    # Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
-    isValidChecksum = PaytmChecksum.verifySignature(paytmParams, MERCHANT_KEY, checksum)
-    if isValidChecksum:
-    	if paytmParams['RESPCODE'] == '01':
-            pass
+        # import checksum generation utility
+        paytmChecksum = ""
 
-    return render(request, 'payment/payment_status.html', {'response':paytmParams})
+    # Create a Dictionary from the parameters received in POST
+    # received_data should contains all data received in POST
+        form = request.POST
+        paytmParams = {}
+
+        for i in form.keys():
+            paytmParams[i] = form[i]
+            if i == 'CHECKSUMHASH':
+                checksum = form[i]
+        # Verify checksum
+        # Find your Merchant Key in your Paytm Dashboard at https://dashboard.paytm.com/next/apikeys
+        isValidChecksum = PaytmChecksum.verifySignature(paytmParams, MERCHANT_KEY, checksum)
+        # if isValidChecksum:
+	    #     if paytmParams['RESPCODE'] == '01':
+        #         pass
+
+        return render(request, 'payment/payment_status.html', {'response':paytmParams})
+    else:
+
+        return render(request, 'error/404.html')
 
 def after_payment(request):
 
@@ -290,15 +299,19 @@ def after_payment(request):
 
                 name = f"{current_donator.fname} {current_donator.lname}"
 
+                # Add Regular Donation entry to Google sheet
                 sheets.RegularDonation(
                 name, current_donator.email, current_donator.contact,
                 current_donator.gender, current_donator.occupation, current_donator.city,
-                current_donator.zipcode, current_donator.type, current_donator.amount
+                current_donator.zipcode, current_donator.type, current_donator.amount, request.POST.get('bankid')
                 )
 
             else:
                 current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
-                sheets.AnonymousDonation(current_donator.zipcode, current_donator.type, current_donator.amount)
+
+                # Add Anonymous Donation entry to Google sheet
+
+                sheets.AnonymousDonation(current_donator.zipcode, current_donator.type, current_donator.amount, request.POST.get('bankid'))
                 del request.session['email']
 
 
@@ -319,7 +332,7 @@ def after_payment(request):
             if(request.session['isRegularDonator']):
                 del request.session['id']
             else:
-                del request.session['id'] 
+                del request.session['id']
                 del request.session['email']
             del request.session['isRegularDonator']
 
@@ -331,3 +344,9 @@ def after_payment(request):
                 'banktxnid':request.POST.get('bankid')
             }
             return render(request, 'payment/payment-complete.html', context)
+    else:
+        return render(request, 'error/404.html')
+
+def handler404(request, exception):
+
+    return render(request, 'error/404.html')

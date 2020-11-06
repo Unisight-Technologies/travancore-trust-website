@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from trust import views
+import trust as tr
 
+handler404 = tr.views.handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +34,6 @@ urlpatterns = [
     path('payment/', views.payment_view, name="payment"),
     path('payment-complete/', views.after_payment, name="payment-complete"),
     path('handle_request/', views.handle_request, name="handle_request"),
-    
+
 
 ]

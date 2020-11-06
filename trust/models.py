@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 
@@ -19,6 +20,10 @@ class Contact(models.Model):
     message = models.CharField(max_length=1000)
 
 class Regulardonation(models.Model):
+    id = models.UUIDField(
+         primary_key = True,
+         default = uuid.uuid4,
+         editable = False)
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
     email = models.EmailField()
@@ -33,6 +38,10 @@ class Regulardonation(models.Model):
 
 
 class Anonymousdonation(models.Model):
+    id = models.UUIDField(
+         primary_key = True,
+         default = uuid.uuid4,
+         editable = False)
     zipcode = models.BigIntegerField()
     type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
