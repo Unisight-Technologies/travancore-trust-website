@@ -47,7 +47,7 @@ body {
 /* Set a specific color for each brand */
 
 /* Facebook */
-.fa-facebook {
+.social-media .fa-facebook {
   margin-top: 8px;
   padding-top: 5px;
   background: #ce861f;
@@ -55,7 +55,7 @@ body {
 }
 
 /* Twitter */
-.fa-twitter {
+.social-media .fa-twitter {
   margin-top: 8px;
   padding-top: 5px;
   background: #ce861f;
@@ -497,7 +497,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 1);
 }
 
 .volunteer-image{
-  height: 30%;
+  height: 600px;
   width: 40%;
 }
 
@@ -658,7 +658,7 @@ a:hover, a:focus, a:active {
 }
 .carousel-home .carousel-title {
   color: #fff;
-  font-family: "Dosis", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 50px;
   font-weight: bold;
   text-transform: uppercase;
@@ -863,6 +863,13 @@ a:hover, a:focus, a:active {
   margin: 0;
   background: #e8a443;
 }
+
+.footer-ul .submenu li::before {
+  list-style: circle;
+  content: "\21AA";
+  color: #e8a443;
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none; }
@@ -979,11 +986,13 @@ a:hover, a:focus, a:active {
   display: inline-block;
   width: 35px;
   height: 35px;
-  background: #1f76bd;
+  background: #ce861f;
   vertical-align: middle;
   margin-right: 5px;
   color: #fff;
   text-align: center;
+  border-radius: 50%;
+
 }
 .contact-items .contact-icon .fa {
   vertical-align: sub;
