@@ -225,6 +225,12 @@ def payment_view(request):
 
         isRegularDonator = request.session['isRegularDonator']
         current_donator = None
+        CALLBACK_URL = ""
+        if "www" in str(request.META['HTTP_HOST']):
+            CALLBACK_URL = "https://www.thetravancoretrust.org/handle_request/"
+        else:
+            CALLBACK_URL = "https://thetravancoretrust.org/handle_request/"
+
 
         if (isRegularDonator):
             current_donator = models.Regulardonation.objects.get(id=request.session['id'])
@@ -236,7 +242,7 @@ def payment_view(request):
                         'INDUSTRY_TYPE_ID':'Retail',
                         'WEBSITE':'WEBSTAGING',
                         'CHANNEL_ID':'WEB',
-            	        'CALLBACK_URL':'https://thetravancoretrust.org/handle_request/',
+            	        'CALLBACK_URL':CALLBACK_URL,
                     }
         else:
             current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
@@ -248,7 +254,7 @@ def payment_view(request):
                         'INDUSTRY_TYPE_ID':'Retail',
                         'WEBSITE':'WEBSTAGING',
                         'CHANNEL_ID':'WEB',
-            	        'CALLBACK_URL':'https://thetravancoretrust.org/handle_request/',
+            	        'CALLBACK_URL':CALLBACK_URL,
                     }
 
 
