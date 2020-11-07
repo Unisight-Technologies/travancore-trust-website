@@ -36,7 +36,7 @@ SECRET_KEY = '1zfo)xic4mpx5_e@#!_r+y6j7v#8w%6z939_#a91y*u06eq4&1'
 DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['travancore.herokuapp.com', '127.0.0.1', 'www.thetravancoretrust.org', 'thetravancoretrust.org']
+ALLOWED_HOSTS = ['ec2-3-21-134-142.us-east-2.compute.amazonaws.com', '127.0.0.1', 'www.thetravancoretrust.org', 'thetravancoretrust.org']
 
 
 # SMTP EMAIL SETTINGS
