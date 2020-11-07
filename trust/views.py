@@ -236,7 +236,7 @@ def payment_view(request):
                         'INDUSTRY_TYPE_ID':'Retail',
                         'WEBSITE':'WEBSTAGING',
                         'CHANNEL_ID':'WEB',
-            	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+            	        'CALLBACK_URL':'https://thetravancoretrust.org/handle_request/',
                     }
         else:
             current_donator = models.Anonymousdonation.objects.get(id=request.session['id'])
@@ -248,7 +248,7 @@ def payment_view(request):
                         'INDUSTRY_TYPE_ID':'Retail',
                         'WEBSITE':'WEBSTAGING',
                         'CHANNEL_ID':'WEB',
-            	        'CALLBACK_URL':'http://127.0.0.1:8000/handle_request/',
+            	        'CALLBACK_URL':'https://thetravancoretrust.org/handle_request/',
                     }
 
 
