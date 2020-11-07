@@ -33,8 +33,10 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = '1zfo)xic4mpx5_e@#!_r+y6j7v#8w%6z939_#a91y*u06eq4&1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-DEBUG_PROPAGATE_EXCEPTIONS = True
+if socket.gethostname() == 'ip-172-31-22-57':
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['ec2-3-21-134-142.us-east-2.compute.amazonaws.com', '127.0.0.1', 'www.thetravancoretrust.org', 'thetravancoretrust.org']
 
