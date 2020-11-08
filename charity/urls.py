@@ -34,6 +34,6 @@ urlpatterns = [
     path('payment/', views.payment_view, name="payment"),
     path('payment-complete/', views.after_payment, name="payment-complete"),
     path('handle_request/', views.handle_request, name="handle_request"),
-    
+
 
 ]

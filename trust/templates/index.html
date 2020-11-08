@@ -3,22 +3,6 @@
 {% block body_block %}
     <!-- Carousel
     ================================================== -->
-
-    <!-- alert-messages -->
-                        <div style="width:100%; margin-left: 1px;" class="row">
-                          {% if messages %}
-                              {% for message in messages %}
-                              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                            {{ message }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                              {% endfor %}
-                          {% endif %}
-                        </div>
-                  <!-- alert-messages-ends -->
-
     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel">
 
           <!-- Indicators -->
@@ -422,7 +406,82 @@
 
         </div>
 
+
     </div> <!-- /.our-sponsors --> -->
+
+    <script type="text/javascript">
+      var myCounter = 0;
+      var view_counter = "{{counter}}";
+      console.log(view_counter);
+
+
+        $(document).ready(function() {
+
+            /* Every time the window is scrolled ... */
+            $(window).scroll( function(){
+
+                /* Check the location of each desired element */
+                $('#counter').each( function(i){
+
+                    var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                    var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+                    /* If the object is completely visible in the window, fade it in */
+                    if( bottom_of_window > bottom_of_object ){
+
+                        myCounter++;
+                        if(myCounter == 1){
+                          var num1 = 0;
+                          var num2 = 0;
+                          var num3 = 0;
+                          var counter1 = 0;
+                          var counter2 = 0;
+                          var counter3 = 0;
+
+                          var elem1 = document.getElementById("updateNum1");
+                          setInterval(change1, 30);
+
+                          function change1() {
+                            if (num1 <= 200) {
+                              elem1.innerHTML = num1.toString();
+                              num1++;
+                              counter1 = 0;
+                            }
+                          }
+
+                          var elem2 = document.getElementById("updateNum2");
+                          setInterval(change2, 50);
+
+                          function change2() {
+                            if (num2 <= 15) {
+                              elem2.innerHTML = num2.toString();
+                              num2++;
+                              counter2 = 0;
+                            }
+                          }
+
+                          var elem3 = document.getElementById("updateNum3");
+                          setInterval(change3, 50);
+
+                          function change3() {
+                            if (num3 <= view_counter) {
+                              elem3.innerHTML = num3.toString();
+                              num3++;
+                              counter3 = 0;
+                            }
+                          }
+
+                        }
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
     {% if submitted %}
         <script type="text/javascript">
           alert("Your request has been received successfully! We will get back to you as soon as possible.");

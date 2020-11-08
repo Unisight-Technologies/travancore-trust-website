@@ -128,7 +128,8 @@
 
                             <div class="form-group col-md-6">
                               <label for="contact">Contact*</label>
-                              	<input type="tel" name="contact" class="form-control" placeholder="Contact no" required>
+                              	<input type="tel" name="contact" pattern="^[0-9]{10}$"
+                                title="Contact number should be of 10 digits only" class="form-control" placeholder="Contact no" required>
                              </div>
 
 
@@ -145,7 +146,8 @@
 
                              <div class="form-group col-md-6">
                                    <label for="pincode">Zipcode*</label>
-                                         <input type="zipcode" name="zipcode" class="form-control" pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
+                                         <input type="zipcode" name="zipcode" class="form-control"
+                                          pattern="^[0-9]{6}$" title="Zipcode should be of 6 digits only" placeholder="Zipcode" required>
                              </div>
                            </div>
 

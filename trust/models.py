@@ -46,3 +46,7 @@ class Anonymousdonation(models.Model):
     type = models.CharField(max_length=100)
     amount = models.BigIntegerField(blank=True,null=True)
     checksum_id = models.CharField(max_length=100, default=0)
+
+
+class Visitors(models.Model):
+    counter = models.IntegerField() 

@@ -115,7 +115,7 @@
 
 
 
-                <form method="POST" class="contact-form">{% csrf_token %}
+                <form name="regular" method="POST" class="contact-form">{% csrf_token %}
 
                   <div class="row">
 
@@ -145,7 +145,8 @@
 
                                 <div class="form-group col-md-6">
                                   <label for="dcontact">Contact*</label>
-                                    <input type="tel" name="contact" class="form-control" placeholder="Contact no" required>
+                                    <input type="tel" name="contact" pattern="^[0-9]{10}$"
+                                    title="Contact number should be of 10 digits only" class="form-control" placeholder="Contact no" required>
                                  </div>
 
 
@@ -181,7 +182,7 @@
 
                                  <div id="money" class="form-group col-md-6">
                                        <label for="dpincode">Amount*</label>
-                                             <input type="zipcode" name="amount" class="form-control"
+                                             <input type="number" title="Please enter a valid amount."  name="amount" class="form-control"
                                               placeholder="Amount">
                                  </div>
 

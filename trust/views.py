@@ -17,7 +17,14 @@ MERCHANT_ID = 'FJqxMp75384358553137'
 class HomePage(View):
     def get(self, request, *args, **kwargs):
 
-        return render(request, 'index.html')
+        current_count = models.Visitors.objects.get(id=1)
+        new_count = current_count.counter+1
+        current_count.counter+=1
+        current_count.save()
+        context = {
+            'counter':new_count
+        }
+        return render(request, 'index.html', context=context)
 
 
 class AboutPage(View):
