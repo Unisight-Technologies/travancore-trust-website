@@ -4,3 +4,4 @@ trust/__pycache__
 trust/paytm/__pycache__
 trust/.env
 charity/.env
+db.sqlite3
