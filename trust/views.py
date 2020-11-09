@@ -305,6 +305,7 @@ def after_payment(request):
 
         # Successfull payment
         if request.POST.get('respcode') == '01':
+            
 
             if(request.session['isRegularDonator']):
 
