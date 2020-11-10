@@ -83,7 +83,7 @@ def sendMailToTravancoreIrregularDonation(zipcode, amount, type):
             subject,
             message,
             env("EMAIL"),
-            ['parmarnaitik0909@gmail.com'],
+            ['thetravancorecharitabletrust@gmail.com','hari.vijayan89@gmail.com','thomaslijo634@gmail.com','gsajan52@yahoo.com'],
             fail_silently = False,
 
         )
@@ -95,7 +95,7 @@ def sendMailToTravancoreIrregularDonation(zipcode, amount, type):
             subject,
             message,
             env("EMAIL"),
-            ['parmarnaitik0909@gmail.com'],
+            ['thetravancorecharitabletrust@gmail.com','hari.vijayan89@gmail.com','thomaslijo634@gmail.com','gsajan52@yahoo.com'],
             fail_silently = False,
         )
 
@@ -126,7 +126,7 @@ def sendMailToTravancoreContact(name, email, message):
         subject,
         message,
         env("EMAIL"),
-        ['parmarnaitik0909@gmail.com'],
+        ['thetravancorecharitabletrust@gmail.com','hari.vijayan89@gmail.com','thomaslijo634@gmail.com','gsajan52@yahoo.com'],
         fail_silently = False,
 
     )
