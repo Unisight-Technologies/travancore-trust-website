@@ -19,6 +19,13 @@ body {
   color: #115c9b;
 }
 
+.owner-img {
+  width:  100px;
+  height: 100%;
+  background-size: cover;
+}
+
+
 #vol-form{
   font-weight: 600 !important;
 }
