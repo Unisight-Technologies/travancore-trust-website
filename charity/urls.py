@@ -26,6 +26,7 @@ urlpatterns = [
     path('about/',views.AboutPage.as_view(),name='about'),
     path('contact/',views.ContactPage.as_view(),name='contact'),
     path('events/',views.EventPage.as_view(),name='events'),
+    path('gallery/',views.GalleryPage.as_view(),name='gallery'),
     path('fundraising/',views.FundraisPage.as_view(),name='fundraising'),
     path('donate/',views.DonatePage.as_view(),name='donate'),
     path('project/',views.ProjectPage.as_view(),name='project'),

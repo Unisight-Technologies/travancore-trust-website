@@ -123,6 +123,13 @@ class EventPage(View):
         return render(request, 'events.html')
 
 
+
+class GalleryPage(View):
+    def get(self, request, *args, **kwargs):
+
+        return render(request, 'gallery.html')
+
+
 class DonatePage(View):
     def get(self, request, *args, **kwargs):
 
@@ -305,7 +312,7 @@ def after_payment(request):
 
         # Successfull payment
         if request.POST.get('respcode') == '01':
-            
+
 
             if(request.session['isRegularDonator']):
 
