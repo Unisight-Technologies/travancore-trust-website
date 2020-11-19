@@ -71,7 +71,7 @@ class FundraisPage(View):
 class CertificatePage(View):
     def get(self, request, *args, **kwargs):
 
-        return render(request, 'temp.html')
+        return render(request, 'certificate.html')
 
 class VolunteerPage(View):
     def get(self, request, *args, **kwargs):
