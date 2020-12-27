@@ -1,0 +1,91 @@
+/* body{
+  background-color: black;
+} */
+
+.head-commercial{
+  text-align: center;
+  color: black;
+  padding-top: 50px;
+}
+
+.add-on{
+  padding-bottom:5px;
+  margin-top: 40%;
+  width: 300px;
+    webkit-transform: translate(0,40px);
+    transform: translate(0,30px);
+    transition: transform .3s ease;
+  background-color: white;
+  color: black;
+
+}
+
+/* p{
+  color: black;
+} */
+
+.main-heading{
+  color: black;
+}
+
+.embedded-1{
+  margin: 0;
+}
+
+.embedded-2{
+  margin: 15px;
+}
+
+.add-on:hover{
+  -webkit-transform: translate(0,0);
+  -moz-transform: translate(0,40px);
+    -ms-transform: translate(0,40px);
+    -o-transform: translate(0,40px);
+}
+
+.my-img:hover ~ .add-on{
+  -webkit-transform: translate(0,0);
+  -moz-transform: translate(0,40px);
+    -ms-transform: translate(0,40px);
+    -o-transform: translate(0,40px);
+}
+
+.main{
+
+  overflow: hidden;
+  width: 350px;
+  border-bottom: solid 5px #0295DA;
+  position: relative;
+    background-color: grey;
+
+}
+
+.my-img{
+  width: 350px;
+ position: absolute;
+}
+
+.my-img:hover {
+  transform: scale(1.5);
+  transition: transform 0.5s;
+  width: 400px;
+
+}
+
+
+.retail-project{
+  margin-top: 100px;
+}
+
+@media only screen and (max-width: 1200px){
+  .col{
+    margin-bottom: 50px;
+    width: 350px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main{
+    width: auto;
+  }
+}

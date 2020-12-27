@@ -46,19 +46,23 @@ class ContactPage(View):
 
         insertRow = ["name","email","message"]
 
-        new_contact = models.Contact.objects.create(
-                    name = name,
-                    email = email,
-                    message=message,
+        if(name!="HenryOwest"):
 
-                )
+            new_contact = models.Contact.objects.create(
+                        name = name,
+                        email = email,
+                        message=message,
 
-        new_contact.save()
-        context = {
-        'submitted':True
-        }
-        mailHandler.sendMailToContactPerson(name, email)
-        mailHandler.sendMailToTravancoreContact(name, email, message)
+                    )
+
+            new_contact.save()
+            context = {
+            'submitted':True
+            }
+
+            
+            mailHandler.sendMailToContactPerson(name, email)
+            mailHandler.sendMailToTravancoreContact(name, email, message)
     #    messages.success(request, "Your volunteer form details has been successfully submitted. We will get back to you soon.")
         return render(request, 'index.html', context=context)
 
@@ -115,7 +119,7 @@ class VolunteerPage(View):
 class ProjectPage(View):
     def get(self, request, *args, **kwargs):
 
-        return render(request, 'project.html')
+        return render(request, 'temp.html')
 
 class EventPage(View):
     def get(self, request, *args, **kwargs):
